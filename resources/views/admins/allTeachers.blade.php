@@ -38,9 +38,9 @@
           <a href="">
             <button class="btn btn-primary" onclick="" data-toggle="modal" data-target="#exampleModal">EDIT</button>
           </a>
-          <a href="{{  URL::to('deleteTeacher/'.$teacherInfo->id) }}">
+          <!-- <a href="{{  URL::to('deleteTeacher/'.$teacherInfo->id) }}">
             <button class="btn btn-danger">DELETE</button>
-          </a>
+          </a> -->
           
         </td>
 
