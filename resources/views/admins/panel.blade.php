@@ -132,6 +132,7 @@
             <li><a href="{{ URL::to('allStudents') }}"><i class="icon-envelope"></i><span class="hidden-tablet">All Students</span></a></li>
             <li><a href="{{ URL::to('') }}"><i class="icon-envelope"></i><span class="hidden-tablet">Post Notices</span></a></li>
             <li><a href="{{ URL::to('') }}"><i class="icon-envelope"></i><span class="hidden-tablet">Library</span></a></li>
+            <li><a href="{{ URL::to('') }}"><i class="icon-envelope"></i><span class="hidden-tablet">Classroom</span></a></li>
 
             
           </ul>

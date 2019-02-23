@@ -11,14 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 
 Route::get('/login','LoginController@login');
 Route::post('/login','LoginController@dashboard');
 
+
+Route::get('/','UserController@userPanel');
+Route::get('/blog','UserController@blog');
+Route::get('/single_blog_post','UserController@single_blog_post');
+Route::get('/classroom','UserController@classroom');
+Route::get('/classroom_details','UserController@classroom_details');
+Route::get('/library','UserController@library');
 
 
 /* ################ ROUTE GROUP FOR ADMIN PANEL ################ */

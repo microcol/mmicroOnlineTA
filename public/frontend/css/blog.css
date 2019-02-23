@@ -1,0 +1,22 @@
+.blogHeading h1 {
+	color: #2f3239;
+	font-size: 25px;
+	font-weight: bold;
+	color: #ff7361;
+}
+.card-title {
+    margin-bottom: .75rem;
+    font-size: 22px;
+}
+
+.card-text{
+	font-size: 15px;
+}
+
+.readMore{
+	font-size: 12px;
+}
+
+.postedBy{
+	font-size: 12px;
+}

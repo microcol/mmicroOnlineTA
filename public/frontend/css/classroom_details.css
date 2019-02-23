@@ -1,0 +1,85 @@
+.classroom {
+	min-height: 500px;
+	width: 100%;
+	background: #fff;
+}
+.classroomArea {
+	min-height: 400px;
+	margin-top: 50px;
+	/*background: red;*/
+}
+
+.sidebarNav {
+	height: 50px;
+	width: 100%;
+	background: #fff;
+	border: 1px solid #ebedef;
+	transition: 0.3s;
+	margin-top: 5px;
+}
+
+.sidebarNav:hover {
+	border-bottom: 2px solid #ff7361;
+}
+
+.sidebar ul {
+	margin: 0;
+	padding: 0;	
+}
+
+.sidebar ul li {
+	list-style: none;
+}
+
+.sidebarNav h3 {
+	text-align: center;
+	font-size: 20px;
+	padding-top: 12px;
+	box-sizing: border-box;	
+}
+
+.sidebarNav a  {
+	color: #000;
+	text-decoration: none;
+}
+
+.card {
+	margin: 0 auto;
+}
+
+.joinClass {
+	padding-top: 10px;
+	box-sizing: border-box;
+}
+
+.goToClass {
+	background: #ff7361;
+	border: none;
+}
+
+.goToClass:hover {
+	background: #ff7361;
+	border: none;
+}
+
+.media {
+	border: 2px solid #ebedef;
+	padding: 15px;
+	box-sizing: border-box;
+	margin-bottom: 5px;	
+}
+
+.media img {
+	height: 50px;
+	width: 50px;
+}
+
+.postClass {
+	width: 95%;
+	resize: none;
+}
+
+.postClassBtn {
+	height: 30px;
+}
+

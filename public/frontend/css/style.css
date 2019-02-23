@@ -1,0 +1,273 @@
+@font-face {
+	font-family: Montserrat;
+	src:url(../fonts/Montserrat-Regular.otf);
+}
+body{
+	padding: 0;
+	margin: 0;
+	font-family: Montserrat;
+
+}
+
+.topnav{
+	min-height: 50px;
+	width: 100%;
+	background: #ff7361;
+}
+.topnavLeft, .topnavRight {
+	height: 50px;
+}
+.topnavLeft ul {
+	margin: 0;
+	padding:0; 
+}
+.topnavLeft ul li{
+	list-style: none;
+	float: left;
+	margin-top: 12px;
+	margin-right: 15px;
+}
+.topnavLeft ul li a{
+	font-size: 15px;
+	color: #fff;
+}
+.topnavLeft ul li a i{
+	margin-right: 5px;
+}
+.topnavRight ul {
+	margin: 0;
+	padding:0; 
+	margin-left: 385px;
+}
+.topnavRight ul li{
+	list-style: none;
+	float: left;
+	margin-top: 12px;
+	margin-left: 15px;
+}
+.topnavRight ul li a{
+	font-size: 20px;
+	color: #fff;
+}
+.topnavRight ul li a i{
+	margin-right: 5px;
+}
+
+.logo img {
+	height: 45px;
+	width: 160px;
+}
+
+.navbar-expand-lg .navbar-nav{
+	margin: 0 auto;
+	width: 50%;
+}
+
+.navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show > .nav-link {
+    color: #ff7361;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: #fff;
+}
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: #ff7361;
+}
+.navbar-light{
+ background: #2f3239;
+}
+.navbar-toggler {
+	background: #fff;
+}
+
+
+.banner {
+	height: 400px;
+	width: 100%;
+	background: url(../images/banner.gif);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+.bannerTxt h1 {
+	text-align: center;
+	font-size: 30px;
+	color: #28e2ff;
+	margin-top: 100px;
+}
+.bannerTxt h1 span {
+	font-weight: bold;
+	line-height: 10px;
+}
+.bannerTxt p {
+	text-align: center;
+	font-size: 15px;
+	color: #28e2ff;
+	width: 70%;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+.mainContent {
+	min-height: 300px;
+	width: 100%;
+	background: #f3f3f3;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+.notice, .sideBar {
+	min-height: 300px;	
+}
+.sideBar h1 {
+	font-size: 25px;
+	color: #ff7361;
+	padding: 15px;
+	box-sizing: border-box;
+	font-weight: bold;
+}
+.sideBarHr {
+	border: 1px solid #ff7361;
+	margin-top: -10px;
+}
+.sideBarStatBox {
+	margin: 0 auto;
+	min-height: 60px;
+	width: 90%;
+	background: #ff7361;
+	margin-bottom: 10px;
+}
+.sideBarStatBox h3{
+	font-size: 20px;
+	text-align: center;
+	padding-top: 17px;
+	padding-bottom: 5px;
+	box-sizing: border-box;
+	color: #fff;
+}
+.sideBarStatBox h3 i{
+	margin-right: 10px;
+}
+
+
+
+.bfContent {
+	height: 500px;
+	width: 100%;
+	margin: 0 auto; 
+}
+.tabsBgFixed {
+	height: 450px;
+	width: 100%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+.tabsCustomCss li a {
+	margin-top: 15px;
+}
+.nav-tabs {
+	padding-bottom: 2px;
+	box-sizing: border-box;	
+	border-bottom: 2px solid #ff7361;
+}
+.nav-tabs .nav-link {
+	background: transparent;
+	border: none;
+	color: #000;
+	border-radius: 0px;
+}
+.nav-tabs .nav-link:hover {
+	background: transparent;
+	border: 1px solid #000;
+	color: #000;
+	border-radius: 0px;
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+	background: #ff7361;
+	border: 1px solid #000;
+	color: #fff;
+	border-radius: 0px;
+}
+
+
+.logIn {
+	background: #ff7361;
+	border: 1px solid #000;
+	color: #fff;
+	border-radius: 0px;
+}
+
+.Reset {
+	background: #ff7361;
+	border: 1px solid #000;
+	color: #fff;
+	border-radius: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.footer{
+	height: 50px;
+	width: 100%;
+	background: #2f3239;
+}
+.footerTxt h3{
+	text-align: center;
+	color: #fff;
+	font-size: 15px;
+	padding-top: 15px;
+	box-sizing: border-box;
+}
+
+
+
+
+
+
+
+
+
+@media(max-width: 480px) {
+
+
+	.topnavLeft ul {
+		margin-left: 55px;
+	}
+	.topnavRight ul {
+		margin-left: 55px;
+	}
+	.logo img {
+		height: 60px;
+		width: 200px;
+	}
+	.navbar-expand-lg .navbar-nav{
+		width: 100%;
+	}
+	.bannerTxt h1 {
+		text-align: center;
+		font-size: 25px;
+		color: #28e2ff;
+		margin-top: 70px;
+	}
+	.bannerTxt h1 span {
+		font-weight: bold;
+		line-height: 10px;
+	}
+	.bannerTxt p {
+		text-align: center;
+		font-size: 15px;
+		color: #28e2ff;
+		width: 100%;
+		margin: 0 auto;
+		margin-top: 30px;
+	}
+
+
+
+}
