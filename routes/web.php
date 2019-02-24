@@ -19,6 +19,8 @@
 Route::get('/login','LoginController@login');
 Route::post('/login','LoginController@dashboard');
 
+Route::post('/student_login','LoginController@studentDashboard');
+
 
 Route::get('/','UserController@userPanel');
 Route::get('/blog','UserController@blog');
@@ -37,6 +39,7 @@ Route::get('/studentRegister','RegisterController@registerStudent');
 Route::get('/allTeachers','RegisterController@allTeachers');
 Route::get('/allStudents','RegisterController@allStudents');
 Route::get('/deleteTeacher/{id}','RegisterController@deleteTeacher');
+Route::get('/classroom_panel','ClassroomController@index');
 
 //Route::post('/register','RegisterController@registration');
 

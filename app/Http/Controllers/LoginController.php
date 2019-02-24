@@ -33,6 +33,32 @@ class LoginController extends Controller
     	
     }
 
+
+    public function studentDashboard(Request $request) {
+
+    	Sentinel::authenticate($request->all());
+
+    	//return Sentinel::check();
+
+        $userType=Sentinel::getUser()->user_type;
+
+        
+        if($userType=='student') {
+            return redirect('/blog');
+        }
+        else if($userType=='employee') {
+            //return redirect('/');
+            
+            return "You are not a Student";
+        }    
+        
+        else {
+            return "Wrong Information Provided!!!";
+        }
+
+    }
+
+
     public function logout() {
     	$logout=Sentinel::logout();
 
