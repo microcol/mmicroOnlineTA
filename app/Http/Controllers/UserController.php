@@ -14,6 +14,10 @@ class UserController extends Controller
     public function blog() {
         return view('users.blog');
     }
+    
+    public function profile() {
+        return view('users.profile');
+    }
 
     public function single_blog_post() {
         return view('users.single_blog_post');

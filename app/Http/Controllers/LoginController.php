@@ -44,7 +44,7 @@ class LoginController extends Controller
 
         
         if($userType=='student') {
-            return redirect('/blog');
+            return redirect('/profile');
         }
         else if($userType=='employee') {
             //return redirect('/');

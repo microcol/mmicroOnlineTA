@@ -24,6 +24,7 @@ Route::post('/student_login','LoginController@studentDashboard');
 
 Route::get('/','UserController@userPanel');
 Route::get('/blog','UserController@blog');
+Route::get('/profile','UserController@profile');
 Route::get('/single_blog_post','UserController@single_blog_post');
 Route::get('/classroom','UserController@classroom');
 Route::get('/classroom_details','UserController@classroom_details');
