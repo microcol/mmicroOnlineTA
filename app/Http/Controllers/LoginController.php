@@ -68,5 +68,15 @@ class LoginController extends Controller
     	else
     		return redirect('/login'); 
     }
+    
+    public function student_logout() {
+    	$student_logout=Sentinel::logout();
+
+    	if($student_logout) {
+    		return redirect('/');
+    	}
+    	else
+    		return redirect('/'); 
+    }
 
 }

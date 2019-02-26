@@ -37,11 +37,22 @@
         <div class="col-md-6 col-xs-12">
           <div class="topnavLeft">
             <ul>
+            @if(Sentinel::check())
+              <li>
+                <form action="/student_logout" method="POST" id="logoutForm">
+                @csrf
+                  <a href="#" onclick="document.getElementById('logoutForm').submit()">
+                    <i class="fas fa-sign-out-alt"></i>Logout
+                  </a>
+                </form>
+              </li>
+            @else 
               <li data-toggle="modal" data-target="#logInModal">
                 <a href="#">
                   <i class="fas fa-sign-in-alt"></i>LogIn
                 </a>
               </li>
+            @endif
               <li data-toggle="modal" data-target="#signUpModal">
                 <a href="#">
                   
