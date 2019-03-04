@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 04, 2019 at 10:49 AM
+-- Generation Time: Mar 04, 2019 at 12:58 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -62,7 +62,8 @@ INSERT INTO `activations` (`id`, `user_id`, `code`, `completed`, `completed_at`,
 (27, 8, 'Msu3o7hhphNVaY7UeVEolUskwjrmuogH', 1, '2019-02-28 07:51:51', '2019-02-28 07:51:51', '2019-02-28 07:51:51'),
 (28, 12, 'TGFvrjcTjLEb4TzpC6I8RT9EqoTuiumf', 1, '2019-02-28 08:41:17', '2019-02-28 08:41:17', '2019-02-28 08:41:17'),
 (29, 13, 's7zJ0YGnFYqLKGYsenpCEPY7HN1B4nBs', 1, '2019-02-28 09:01:25', '2019-02-28 09:01:25', '2019-02-28 09:01:25'),
-(30, 14, 'bqrQJB5vBBxz2A2MWjMrUrA63INSYqBD', 1, '2019-03-04 03:21:28', '2019-03-04 03:21:28', '2019-03-04 03:21:28');
+(30, 14, 'bqrQJB5vBBxz2A2MWjMrUrA63INSYqBD', 1, '2019-03-04 03:21:28', '2019-03-04 03:21:28', '2019-03-04 03:21:28'),
+(31, 15, 'CFgjTflr9CqDBmqwD5XomI4Ntqv4im2E', 1, '2019-03-04 05:37:31', '2019-03-04 05:37:31', '2019-03-04 05:37:31');
 
 -- --------------------------------------------------------
 
@@ -135,7 +136,8 @@ INSERT INTO `persistences` (`id`, `user_id`, `code`, `created_at`, `updated_at`)
 (175, 13, 'x5RJi2N8XLue3ZKiHZbDQOxjRBIlCzxL', '2019-02-28 09:07:18', '2019-02-28 09:07:18'),
 (176, 12, 'WxcxOnBKK7tgaLQI3wgGPKkxC6YNVYwM', '2019-03-04 03:05:10', '2019-03-04 03:05:10'),
 (178, 13, 'lKTylVevPlc1gkYfd5Bx9NbJdKSOqRZ5', '2019-03-04 03:07:01', '2019-03-04 03:07:01'),
-(183, 14, 'mVoUFWoSeiSkWCL1SPZt0LyqiesDghfn', '2019-03-04 03:28:08', '2019-03-04 03:28:08');
+(183, 14, 'mVoUFWoSeiSkWCL1SPZt0LyqiesDghfn', '2019-03-04 03:28:08', '2019-03-04 03:28:08'),
+(189, 14, 'uA4qpmw5jQsc9f3vRuqqyYoqGsg29ezk', '2019-03-04 05:56:28', '2019-03-04 05:56:28');
 
 -- --------------------------------------------------------
 
@@ -396,7 +398,9 @@ INSERT INTO `throttle` (`id`, `user_id`, `type`, `ip`, `created_at`, `updated_at
 (196, NULL, 'ip', '127.0.0.1', '2019-02-28 08:38:06', '2019-02-28 08:38:06'),
 (197, 8, 'user', NULL, '2019-02-28 08:38:06', '2019-02-28 08:38:06'),
 (198, NULL, 'global', NULL, '2019-02-28 08:55:46', '2019-02-28 08:55:46'),
-(199, NULL, 'ip', '127.0.0.1', '2019-02-28 08:55:46', '2019-02-28 08:55:46');
+(199, NULL, 'ip', '127.0.0.1', '2019-02-28 08:55:46', '2019-02-28 08:55:46'),
+(200, NULL, 'global', NULL, '2019-03-04 05:55:58', '2019-03-04 05:55:58'),
+(201, NULL, 'ip', '127.0.0.1', '2019-03-04 05:55:58', '2019-03-04 05:55:58');
 
 -- --------------------------------------------------------
 
@@ -428,8 +432,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `user_type`, `varsity_id`, `first_name`, `last_name`, `full_name`, `email`, `department`, `phone`, `password`, `photo`, `permissions`, `last_login`, `created_at`, `updated_at`) VALUES
 (12, 'employee', '1123554', 'teacher', 'teacher', 'teacher', 'teacher@onlineta.com', 'bba', 6576, '$2y$10$1nsiUzvpHH5wafk7//eeoOvwm3n9S8FD2rHsMKn8rRw/.kXNH1hRi', '1551364876.jpg', NULL, '2019-03-04 03:33:37', '2019-02-28 08:41:17', '2019-03-04 03:33:37'),
-(13, 'student', '151-15-335', 'Md Mohaiminul', 'Islam', 'Md Mohaiminul Islam', 'rabidislam@hotmail.com', 'CSE', 1624585608, '$2y$10$KJiCGKUdyAAPhcNAhJxeLuyvY1Ul2IWh.oooU2GZFZc5RihHO21fS', '1551366085.jpg', NULL, '2019-03-04 03:17:32', '2019-02-28 09:01:25', '2019-03-04 03:17:32'),
-(14, 'superadmin', '121243422', 'Super', 'Admin', 'Super Admin', 'superadmin@onlineta.com', 'ALL', 9873546723, '$2y$10$eIw.SbAAekC4kerloTbM1e2cO8uCM1A44T4WB3t0hgjn86jQ53C02', '1551691288.png', NULL, '2019-03-04 03:28:30', '2019-03-04 03:21:28', '2019-03-04 03:28:30');
+(13, 'student', '151-15-335', 'Md Mohaiminul', 'Islam', 'Md Mohaiminul Islam', 'rabidislam@hotmail.com', 'CSE', 1624585608, '$2y$10$KJiCGKUdyAAPhcNAhJxeLuyvY1Ul2IWh.oooU2GZFZc5RihHO21fS', '1551366085.jpg', NULL, '2019-03-04 05:21:59', '2019-02-28 09:01:25', '2019-03-04 05:21:59'),
+(14, 'superadmin', '121243422', 'Super', 'Admin', 'Super Admin', 'superadmin@onlineta.com', 'ALL', 9873546723, '$2y$10$eIw.SbAAekC4kerloTbM1e2cO8uCM1A44T4WB3t0hgjn86jQ53C02', '1551691288.png', NULL, '2019-03-04 05:56:28', '2019-03-04 03:21:28', '2019-03-04 05:56:28');
 
 --
 -- Indexes for dumped tables
@@ -495,7 +499,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `activations`
 --
 ALTER TABLE `activations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -507,7 +511,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `persistences`
 --
 ALTER TABLE `persistences`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=186;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=190;
 
 --
 -- AUTO_INCREMENT for table `reminders`
@@ -525,13 +529,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `throttle`
 --
 ALTER TABLE `throttle`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=200;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
