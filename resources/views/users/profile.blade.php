@@ -14,7 +14,6 @@
           <div class="row">
             <div class="col-md-4">
               <div class="profileImg">
-                <!-- <img src="{{ asset('frontend/images/male.png') }}"> -->
                 <img src="{{ asset('/uploads/images').'/'.$userInfo->photo }}">
               </div>
             </div>
