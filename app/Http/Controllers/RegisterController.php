@@ -21,9 +21,24 @@ class RegisterController extends Controller
     }
 
     public function registration(Request $request) {
+            
+        request()->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
 
-    	$user= Sentinel::registerAndActivate($request->all());
-    
+        
+        $imageName = time().'.'.request()->image->getClientOriginalExtension();
+        
+        $response = request()->image->move(public_path('uploads/images'), $imageName);
+        
+        // $user= Sentinel::registerAndActivate($request->all());
+        
+        $data= $request->all();
+        
+        $data['photo']= $imageName;
+        
+        $user= Sentinel::registerAndActivate($data);
+        
     	if($user) {
             $notification=array(
                 'message'=>'New User Added Successfully!',
@@ -56,7 +71,7 @@ class RegisterController extends Controller
     //    $deleteTeacher->delete();
 
         $user = Sentinel::EloquentUser()->delete($id);
-        var_dump($user); die;
+
         if($deleteTeacher) {
             $notification=array(
                 'message'=>'Teachers Deleted Successfully!',

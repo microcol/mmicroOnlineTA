@@ -14,30 +14,31 @@ class LoginController extends Controller
     }
 
     public function dashboard(Request $request) {
-
-    	Sentinel::authenticate($request->all());
-
-    	//return Sentinel::check();
-
-        $userType=Sentinel::getUser()->user_type;
-
+        Sentinel::authenticate($request->all());
         
-        if($userType=='employee') {
+        Sentinel::check();
+        
+        //dd(Sentinel::getUser()->user_type);
+        $userType=Sentinel::getUser()->user_type;
+        
+        Sentinel::disableCheckpoints();
+        
+        if($userType=='superadmin' || $userType=='employee') {
             return redirect('/dashboard');
         }
         else if($userType=='student') {
             //return redirect('/');
             
-            return "You are not an Employee";
+            return "You are not an Employee/SuperAdmin";
         }    
     	
     }
 
 
     public function studentDashboard(Request $request) {
-
+        
     	Sentinel::authenticate($request->all());
-
+        
     	//return Sentinel::check();
 
         $userType=Sentinel::getUser()->user_type;
@@ -46,7 +47,7 @@ class LoginController extends Controller
         if($userType=='student') {
             return redirect('/profile');
         }
-        else if($userType=='employee') {
+        else if($userType=='superadmin' || $userType=='employee') {
             //return redirect('/');
             
             return "You are not a Student";
@@ -63,10 +64,10 @@ class LoginController extends Controller
     	$logout=Sentinel::logout();
 
     	if($logout) {
-    		return redirect('/login');
+    		return redirect('/');
     	}
     	else
-    		return redirect('/login'); 
+    		return redirect('/'); 
     }
     
     public function student_logout() {

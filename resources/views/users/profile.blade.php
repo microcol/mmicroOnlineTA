@@ -14,7 +14,8 @@
           <div class="row">
             <div class="col-md-4">
               <div class="profileImg">
-                <img src="{{ asset('frontend/images/male.png') }}">
+                <!-- <img src="{{ asset('frontend/images/male.png') }}"> -->
+                <img src="{{ asset('/uploads/images').'/'.$userInfo->photo }}">
               </div>
             </div>
             <div class="col-md-8">
@@ -22,19 +23,19 @@
                 <table cellpadding="5px;">
                   <tr>
                     <th>NAME:</th>
-                    <td>Md Mohaiminul Islam</td>
+                    <td>{{ $userInfo->full_name }}</td>
                   </tr>
                   <tr>
                     <th>ID:</th>
-                    <td>151-15-335</td>
+                    <td>{{ $userInfo->varsity_id }}</td>
                   </tr>
                   <tr>
                     <th>Department:</th>
-                    <td>CSE</td>
+                    <td>{{ $userInfo->department }}</td>
                   </tr>
                   <tr>
-                    <th>BATCH:</th>
-                    <td>40th</td>
+                    <th>PHONE:</th>
+                    <td>{{ $userInfo->phone }}</td>
                   </tr>
                 </table>
               </div>

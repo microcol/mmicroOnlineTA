@@ -106,7 +106,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="{{ '/profile' }}">Profile <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
@@ -138,7 +138,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="footerTxt">
-          <h3>All rights reserved by- OnlineTA || 2018</h3>
+          <h3>All rights reserved by- OnlineTA || 2019</h3>
         </div>
       </div>
     </div>

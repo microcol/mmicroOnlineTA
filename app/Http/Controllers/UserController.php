@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Sentinel;
+
 class UserController extends Controller
 {
 
@@ -16,7 +18,8 @@ class UserController extends Controller
     }
     
     public function profile() {
-        return view('users.profile');
+        $userInfo=Sentinel::getUser();
+        return view('users.profile')->with('userInfo',$userInfo);
     }
 
     public function single_blog_post() {

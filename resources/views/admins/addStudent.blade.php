@@ -11,7 +11,7 @@
 <h1 style="text-align: center; padding: 15px;">ADD NEW STUDENT</h1>
 
 <div class="box-content">
-		<form class="form-horizontal" action="/register" method="POST"> 
+		<form class="form-horizontal" action="/register" method="POST" enctype="multipart/form-data"> 
 			@csrf  
 			<fieldset>
 			  <div class="control-group">
@@ -65,7 +65,7 @@
 			  <div class="control-group">
 				<label class="control-label" for="focusedInput">Photo</label>
 				<div class="controls">
-				  <input class="input-xlarge focused" id="focusedInput" type="file" name="photo">
+				  <input class="input-xlarge focused" id="focusedInput" type="file" name="image">
 			   </div>
 			  </div>    
 			  <input type="hidden" name="user_type" value="student">

@@ -126,6 +126,9 @@
       <div id="sidebar-left" class="span2" style="min-height: 700px;">
         <div class="nav-collapse sidebar-nav">
           <ul class="nav nav-tabs nav-stacked main-menu">
+
+          
+          
             <li><a href="{{ URL::to('employeeRegister') }}"><i class="icon-bar-chart"></i><span class="hidden-tablet">Add Teacher</span></a></li> 
             <li><a href="{{ URL::to('studentRegister') }}"><i class="icon-bar-chart"></i><span class="hidden-tablet">Add Student</span></a></li>
             <li><a href="{{ URL::to('allTeachers') }}"><i class="icon-envelope"></i><span class="hidden-tablet">All Teachers</span></a></li>
@@ -134,6 +137,9 @@
             <li><a href="{{ URL::to('') }}"><i class="icon-envelope"></i><span class="hidden-tablet">Library</span></a></li>
             <li><a href="{{ URL::to('/classroom_panel') }}"><i class="icon-envelope"></i><span class="hidden-tablet">Classroom</span></a></li>
 
+          
+
+          
             
           </ul>
         </div>

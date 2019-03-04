@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,22 +9,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
-
 Route::get('/login','LoginController@login');
 Route::post('/login','LoginController@dashboard');
-
 Route::post('/student_login','LoginController@studentDashboard');
-
-
-
 Route::get('/','UserController@userPanel');
-
-
 
 /* ################ ROUTE GROUP FOR ADMIN PANEL ################ */
 
@@ -51,11 +41,7 @@ Route::get('/library','UserController@library');
 
 Route::post('logout','LoginController@logout');
 Route::post('student_logout','LoginController@student_logout');
-
 Route::post('/register','RegisterController@registration');
 Route::get('/dashboard','AdminController@adminPanel');
 
-
 });
-
-
