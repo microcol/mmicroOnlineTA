@@ -1,29 +1,16 @@
-@extends('users.layouts')
+
+@extends('admins.panel')
+
 
 @section('content')
 
-
-<script>
   
-  $(document).ready(function() {
-      $('#library').DataTable();
-    });
 
-</script>
+<h1 style="text-align: center; padding: 15px;">ALL LIBRARY BOOKS LIST ARE HERE</h1>
 
 
-<!-- LIBRARY SECTION STARTS HERE -->
-
-
-<section class="libraryArea">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 col-xs-12">
-        <div class="libraryAreaContent">
-          <h1>Welcome To Online Library</h1>
-
-          <table class="table table-striped display" id="library">
-          <thead>
+    <table class="table table-striped display" id="datatable">
+      <thead>
         <tr>
           <th scope="col">Book Title</th>
           <th scope="col">Course Code</th>
@@ -49,19 +36,10 @@
 
         
       </tbody>
-          </table>
+    </table>
+            
+            
 
-
-
-  </div>
-</section>
-
-
-
-
-
-
-<!-- LIBRARY SECTION ENDS HERE -->
 
 
 @endsection

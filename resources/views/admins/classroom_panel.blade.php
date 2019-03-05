@@ -29,7 +29,7 @@
   <div class="form-group mx-sm-3 mb-2">
     <select>
     @foreach($courseInfo as $courseCode)
-        <option valuse="{{ $courseCode->id }}">{{ $courseCode->course_code }}</option>
+        <option valuse="{{ $courseCode->course_code }}">{{ $courseCode->course_code }}</option>
     @endforeach
     </select>
   </div>

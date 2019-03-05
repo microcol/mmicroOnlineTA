@@ -6,21 +6,16 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Storage;
 
-use App\Classroom;
+use App\Notice;
 
-use App\Library;
-
-
-
-class LibraryController extends Controller
+class NoticeController extends Controller
 {
     public function index() {
-        $deptInfos= Classroom::all();
-        return view('admins.library')->with('deptInfos',$deptInfos);
+        return view('admins.postNotice');
     }
-
-    public function uploadBook(Request $request) {
-
+    
+    public function postNotice(Request $request) {
+        
         request()->validate([
             'file' => "required|mimes:pdf|max:10000",
         ]);
@@ -34,11 +29,11 @@ class LibraryController extends Controller
         
         $data['file']= $fileName;
         
-        $uploadFile= Library::create($data);
+        $uploadFile= Notice::create($data);
         
     	if($uploadFile) {
             $notification=array(
-                'message'=>'Book Uploaded Successfully!',
+                'message'=>'Notice Posted Successfully!',
                 'alert-type'=>'success'
             );
                return Redirect()->back()->with($notification);
@@ -46,16 +41,4 @@ class LibraryController extends Controller
         }
 
     }
-
-    public function viewBook() {
-        $viewBooks= Library::all();
-        return view('admins.viewLibrary')->with('viewBooks',$viewBooks);
-    }
-    
-    public function viewBookToUsers() {
-        $viewBooks= Library::all();
-        return view('users.library')->with('viewBooks',$viewBooks);
-    }
-
-
 }
