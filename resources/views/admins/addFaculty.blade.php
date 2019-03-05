@@ -65,7 +65,7 @@
 			  <div class="control-group">
 				<label class="control-label" for="focusedInput">Photo</label>
 				<div class="controls">
-				  <input class="input-xlarge focused" id="focusedInput" type="file" name="image">
+				  <input class="input-xlarge focused" id="focusedInput" type="file" name="image" required>
 			   </div>
 			  </div>    
 			  <input type="hidden" name="user_type" value="employee">

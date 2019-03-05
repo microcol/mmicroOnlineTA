@@ -51,6 +51,44 @@ class RegisterController extends Controller
     }
 
 
+
+    public function updateRegisteredUserData(Request $request, $id) {
+
+        $userId = Sentinel::findById($id);
+        
+        // $userId = Sentinel::findById($id);
+            
+        request()->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        
+        $imageName = time().'.'.request()->image->getClientOriginalExtension();
+        
+        $response = request()->image->move(public_path('uploads/images'), $imageName);
+        
+        // $user= Sentinel::registerAndActivate($request->all());
+        
+        $data= $request->all();
+        
+        $data['photo']= $imageName;
+        
+        $user=Sentinel::update($userId,$data);
+
+    	if($user) {
+            $notification=array(
+                'message'=> 'User Information Updated Successfully!',
+                'alert-type'=>'success'
+            );
+               return Redirect()->back()->with($notification);
+
+        }
+
+    }
+
+
+
+
     public function allTeachers() {
         $teachers=Sentinel::getUser()->where('user_type', 'employee')->get();
         return view('admins.allTeachers',compact('teachers'));

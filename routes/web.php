@@ -42,6 +42,7 @@ Route::get('/library','UserController@library');
 Route::post('logout','LoginController@logout');
 Route::post('student_logout','LoginController@student_logout');
 Route::post('/register','RegisterController@registration');
+Route::post('/update_data/{id}','RegisterController@updateRegisteredUserData');
 Route::get('/dashboard','AdminController@adminPanel');
 
 });
