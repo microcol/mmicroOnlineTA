@@ -39,7 +39,7 @@
 
 
           <td>
-          <a href="">
+          <a href="/{{ $teacherInfo->id }}">
             <button class="btn btn-primary" onclick="edit({{ $teacherInfo->id }})" data-toggle="modal" data-target="#exampleModal">EDIT</button>
           </a>
           <!-- <a href="{{  URL::to('deleteTeacher/'.$teacherInfo->id) }}">
@@ -132,6 +132,7 @@
 				  <input class="input-xlarge focused" id="edit_image" type="file" name="image" required value="{{ $teacherInfo->image }}">
 			   </div>
 			  </div>    
+        <input id="id" type="hidden" name="id">
 			  <input type="hidden" name="user_type" value="employee">
 			</fieldset>
       </div>
@@ -161,7 +162,7 @@
     $("#edit_phone").val($("#phone_"+id).html());
     $("#edit_password").val($("#password_"+id).html());
     $("#edit_photo").val($("#photo_"+id).html());
-    $("#agent_id").val(id);
+    $("#id").val(id);
 
   }
 

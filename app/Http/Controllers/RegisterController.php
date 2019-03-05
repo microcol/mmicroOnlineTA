@@ -73,7 +73,7 @@ class RegisterController extends Controller
         
         $data['photo']= $imageName;
         
-        $user=Sentinel::update($userId,$data);
+        $user=Sentinel::update($userId, $data);
 
     	if($user) {
             $notification=array(

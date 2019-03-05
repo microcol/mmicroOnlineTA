@@ -134,7 +134,7 @@
             <li><a href="{{ URL::to('allTeachers') }}"><i class="icon-envelope"></i><span class="hidden-tablet">All Teachers</span></a></li>
             <li><a href="{{ URL::to('allStudents') }}"><i class="icon-envelope"></i><span class="hidden-tablet">All Students</span></a></li>
             <li><a href="{{ URL::to('') }}"><i class="icon-envelope"></i><span class="hidden-tablet">Post Notices</span></a></li>
-            <li><a href="{{ URL::to('') }}"><i class="icon-envelope"></i><span class="hidden-tablet">Library</span></a></li>
+            <li><a href="{{ URL::to('library-panel') }}"><i class="icon-envelope"></i><span class="hidden-tablet">Library</span></a></li>
             <li><a href="{{ URL::to('/classroom_panel') }}"><i class="icon-envelope"></i><span class="hidden-tablet">Classroom</span></a></li>
 
           @elseif (Sentinel::check() && Sentinel::getUser()->user_type=="employee")

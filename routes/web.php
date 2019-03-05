@@ -26,7 +26,9 @@ Route::get('/studentRegister','RegisterController@registerStudent');
 Route::get('/allTeachers','RegisterController@allTeachers');
 Route::get('/allStudents','RegisterController@allStudents');
 Route::get('/deleteTeacher/{id}','RegisterController@deleteTeacher');
+Route::get('/library-panel','LibraryController@index');
 Route::get('/classroom_panel','ClassroomController@index');
+Route::post('/create-department','ClassroomController@createDepartment');
 
 /* ################ ROUTE GROUP FOR USER PANEL ################ */
 
