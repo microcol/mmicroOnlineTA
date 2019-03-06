@@ -39,9 +39,10 @@ Route::post('/post-notice','NoticeController@postNotice');
 
 /* ################ ROUTE GROUP FOR USER PANEL ################ */
 
-Route::get('/blog','UserController@blog');
+Route::get('/blog','PostController@viewBlog');
+Route::post('post-blog/','PostController@postBlog');
 Route::get('/profile','UserController@profile');
-Route::get('/single_blog_post','UserController@single_blog_post');
+Route::get('/single_blog_post/{id}','PostController@single_blog_post');
 Route::get('/classroom','UserController@classroom');
 Route::get('/classroom_details','UserController@classroom_details');
 Route::get('/library','LibraryController@viewBookToUsers');

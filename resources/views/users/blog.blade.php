@@ -15,34 +15,44 @@
         	<h1 class="my-4">Blogs</h1>
         </div>
 
-        <!-- Blog Post -->
-        <div class="card mb-4">
-          <img class="card-img-top" src="http://placehold.it/750x300">
+
+        <!-- Comments Form -->
+        <div class="card my-4">
+          <h5 class="card-header">Post Your Blog Here...</h5>
           <div class="card-body">
-            <h2 class="card-title">Post Title</h2>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-            <a href="{{ '/single_blog_post' }}" class="btn btn-primary readMore">Read More &rarr;</a>
-          </div>
-          <div class="card-footer text-muted postedBy">
-            Posted on January 1, 2017 by
-            <a href="#">User</a>
+            <form action="post-blog/" method="post">
+            @csrf
+              <div class="form-group">
+                <textarea class="form-control" rows="3" name="post"></textarea>
+              </div>
+              <input type="hidden" name="user_id" value="{{ Sentinel::getUser()->id }}">
+              <button type="submit" class="btn btn-primary">Post Now</button>
+            </form>
           </div>
         </div>
 
+
+
         <!-- Blog Post -->
+
+      @foreach($viewBlogs as $viewBlog)
+
         <div class="card mb-4">
           <div class="card-body">
-            <h2 class="card-title">Post Title</h2>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-            <a href="{{ '/single_blog_post' }}" class="btn btn-primary readMore">Read More &rarr;</a>
+            <!-- <h2 class="card-title">Post Title</h2> -->
+            <p class="card-text">
+              {{ $viewBlog->post }}
+            </p>
+            <a href="single_blog_post/{{ $viewBlog->id}}/" class="btn btn-primary readMore">Read More &rarr;</a>
           </div>
           <div class="card-footer text-muted postedBy">
-            Posted on January 1, 2017 by
-            <a href="#">User</a>
+            Posted on {{ date('d/m/Y', strtotime($viewBlog->created_at)) }} ||
+            {{ Carbon\Carbon::parse($viewBlog->created_at)->diffForHumans() }} || by
+            <a href="#">{{ $viewBlog->full_name }}</a>
           </div>
         </div>
 
-        
+      @endforeach  
 
         <!-- Pagination -->
         <ul class="pagination justify-content-center mb-4">
