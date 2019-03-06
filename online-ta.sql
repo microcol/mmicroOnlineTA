@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 04, 2019 at 12:58 PM
+-- Generation Time: Mar 06, 2019 at 04:54 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -63,7 +63,56 @@ INSERT INTO `activations` (`id`, `user_id`, `code`, `completed`, `completed_at`,
 (28, 12, 'TGFvrjcTjLEb4TzpC6I8RT9EqoTuiumf', 1, '2019-02-28 08:41:17', '2019-02-28 08:41:17', '2019-02-28 08:41:17'),
 (29, 13, 's7zJ0YGnFYqLKGYsenpCEPY7HN1B4nBs', 1, '2019-02-28 09:01:25', '2019-02-28 09:01:25', '2019-02-28 09:01:25'),
 (30, 14, 'bqrQJB5vBBxz2A2MWjMrUrA63INSYqBD', 1, '2019-03-04 03:21:28', '2019-03-04 03:21:28', '2019-03-04 03:21:28'),
-(31, 15, 'CFgjTflr9CqDBmqwD5XomI4Ntqv4im2E', 1, '2019-03-04 05:37:31', '2019-03-04 05:37:31', '2019-03-04 05:37:31');
+(31, 15, 'CFgjTflr9CqDBmqwD5XomI4Ntqv4im2E', 1, '2019-03-04 05:37:31', '2019-03-04 05:37:31', '2019-03-04 05:37:31'),
+(32, 15, 'irHFa3FxqB5g6I18rOKnQKjdXRKYIkBK', 1, '2019-03-04 12:48:19', '2019-03-04 12:48:19', '2019-03-04 12:48:19'),
+(33, 16, 'iwQmyLQWzvv0p6Dp9Biy5QLmGtbiIpF8', 1, '2019-03-04 13:54:21', '2019-03-04 13:54:21', '2019-03-04 13:54:21'),
+(34, 20, 'lDCdaw8GdiyB7S67zJO4dtyRiJevoV47', 1, '2019-03-05 13:25:37', '2019-03-05 13:25:37', '2019-03-05 13:25:37');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `classrooms`
+--
+
+CREATE TABLE `classrooms` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `department` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `classrooms`
+--
+
+INSERT INTO `classrooms` (`id`, `department`, `course_title`, `course_code`, `created_at`, `updated_at`) VALUES
+(1, 'cse', 'Problem Solving', 'cse111', '2019-03-05 05:25:24', '2019-03-05 05:25:24'),
+(2, 'bba', 'finance', 'bba234', '2019-03-05 05:35:47', '2019-03-05 05:35:47');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `libraries`
+--
+
+CREATE TABLE `libraries` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `book_title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `file` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `libraries`
+--
+
+INSERT INTO `libraries` (`id`, `book_title`, `course_code`, `file`, `created_at`, `updated_at`) VALUES
+(2, 'Finance', 'bba234', '1551809828.pdf', '2019-03-05 12:17:08', '2019-03-05 12:17:08'),
+(3, 'C', 'cse111', '1551813701.pdf', '2019-03-05 13:21:41', '2019-03-05 13:21:41');
 
 -- --------------------------------------------------------
 
@@ -82,7 +131,34 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(3, '2014_07_02_230147_migration_cartalyst_sentinel', 1);
+(3, '2014_07_02_230147_migration_cartalyst_sentinel', 1),
+(4, '2019_03_05_104854_create_classrooms_table', 2),
+(5, '2019_03_05_180502_create_libraries_table', 3),
+(6, '2019_03_05_192833_create_notices_table', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notices`
+--
+
+CREATE TABLE `notices` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `notice_title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `department` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(1000) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `file` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `notices`
+--
+
+INSERT INTO `notices` (`id`, `notice_title`, `department`, `description`, `file`, `created_at`, `updated_at`) VALUES
+(1, 'Classes will remain closed on Saturday', 'CSE', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', '1551816189.pdf', '2019-03-05 14:03:09', '2019-03-05 14:03:09'),
+(2, 'A meeting will be held on Monday at 4 p.m', 'bba', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', '1551858028.pdf', '2019-03-06 01:40:28', '2019-03-06 01:40:28');
 
 -- --------------------------------------------------------
 
@@ -137,7 +213,12 @@ INSERT INTO `persistences` (`id`, `user_id`, `code`, `created_at`, `updated_at`)
 (176, 12, 'WxcxOnBKK7tgaLQI3wgGPKkxC6YNVYwM', '2019-03-04 03:05:10', '2019-03-04 03:05:10'),
 (178, 13, 'lKTylVevPlc1gkYfd5Bx9NbJdKSOqRZ5', '2019-03-04 03:07:01', '2019-03-04 03:07:01'),
 (183, 14, 'mVoUFWoSeiSkWCL1SPZt0LyqiesDghfn', '2019-03-04 03:28:08', '2019-03-04 03:28:08'),
-(189, 14, 'uA4qpmw5jQsc9f3vRuqqyYoqGsg29ezk', '2019-03-04 05:56:28', '2019-03-04 05:56:28');
+(189, 14, 'uA4qpmw5jQsc9f3vRuqqyYoqGsg29ezk', '2019-03-04 05:56:28', '2019-03-04 05:56:28'),
+(193, 14, 'QShgJq0w79wQ8bPyen0L5YuTsTNBLaZz', '2019-03-04 14:04:34', '2019-03-04 14:04:34'),
+(194, 14, 'zNrBSXern8PrXZILBwZxnnMzM0DKow0Y', '2019-03-04 14:26:35', '2019-03-04 14:26:35'),
+(198, 14, 'KVAcnjszFaSqYoFlW7sK2cDPp9Bow7S9', '2019-03-05 05:21:52', '2019-03-05 05:21:52'),
+(203, 14, 'PSseLgxBtd0ROqtdwTVDNHzB1S5nN9S6', '2019-03-05 13:21:07', '2019-03-05 13:21:07'),
+(207, 14, '3u3hbUvEQZttO2I3IY3DVImNnyP4pbbk', '2019-03-06 02:45:36', '2019-03-06 02:45:36');
 
 -- --------------------------------------------------------
 
@@ -400,7 +481,11 @@ INSERT INTO `throttle` (`id`, `user_id`, `type`, `ip`, `created_at`, `updated_at
 (198, NULL, 'global', NULL, '2019-02-28 08:55:46', '2019-02-28 08:55:46'),
 (199, NULL, 'ip', '127.0.0.1', '2019-02-28 08:55:46', '2019-02-28 08:55:46'),
 (200, NULL, 'global', NULL, '2019-03-04 05:55:58', '2019-03-04 05:55:58'),
-(201, NULL, 'ip', '127.0.0.1', '2019-03-04 05:55:58', '2019-03-04 05:55:58');
+(201, NULL, 'ip', '127.0.0.1', '2019-03-04 05:55:58', '2019-03-04 05:55:58'),
+(202, NULL, 'global', NULL, '2019-03-05 01:40:34', '2019-03-05 01:40:34'),
+(203, NULL, 'ip', '127.0.0.1', '2019-03-05 01:40:34', '2019-03-05 01:40:34'),
+(204, NULL, 'global', NULL, '2019-03-05 13:24:34', '2019-03-05 13:24:34'),
+(205, NULL, 'ip', '127.0.0.1', '2019-03-05 13:24:34', '2019-03-05 13:24:34');
 
 -- --------------------------------------------------------
 
@@ -416,9 +501,9 @@ CREATE TABLE `users` (
   `last_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `full_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `department` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `department` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `phone` bigint(11) DEFAULT NULL,
-  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `photo` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `permissions` text COLLATE utf8mb4_unicode_ci,
   `last_login` timestamp NULL DEFAULT NULL,
@@ -431,9 +516,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user_type`, `varsity_id`, `first_name`, `last_name`, `full_name`, `email`, `department`, `phone`, `password`, `photo`, `permissions`, `last_login`, `created_at`, `updated_at`) VALUES
-(12, 'employee', '1123554', 'teacher', 'teacher', 'teacher', 'teacher@onlineta.com', 'bba', 6576, '$2y$10$1nsiUzvpHH5wafk7//eeoOvwm3n9S8FD2rHsMKn8rRw/.kXNH1hRi', '1551364876.jpg', NULL, '2019-03-04 03:33:37', '2019-02-28 08:41:17', '2019-03-04 03:33:37'),
-(13, 'student', '151-15-335', 'Md Mohaiminul', 'Islam', 'Md Mohaiminul Islam', 'rabidislam@hotmail.com', 'CSE', 1624585608, '$2y$10$KJiCGKUdyAAPhcNAhJxeLuyvY1Ul2IWh.oooU2GZFZc5RihHO21fS', '1551366085.jpg', NULL, '2019-03-04 05:21:59', '2019-02-28 09:01:25', '2019-03-04 05:21:59'),
-(14, 'superadmin', '121243422', 'Super', 'Admin', 'Super Admin', 'superadmin@onlineta.com', 'ALL', 9873546723, '$2y$10$eIw.SbAAekC4kerloTbM1e2cO8uCM1A44T4WB3t0hgjn86jQ53C02', '1551691288.png', NULL, '2019-03-04 05:56:28', '2019-03-04 03:21:28', '2019-03-04 05:56:28');
+(12, 'employee', '1123554', 'teacher1', 'one', 'teacher one', 'teacher@onlineta.com', 'bba', 6576, '$2y$10$1nsiUzvpHH5wafk7//eeoOvwm3n9S8FD2rHsMKn8rRw/.kXNH1hRi', '1551364876.jpg', NULL, '2019-03-04 03:33:37', '2019-02-28 08:41:17', '2019-03-04 03:33:37'),
+(13, 'student', '151-15-335', 'Md Mohaiminul', 'Islam', 'Md Mohaiminul Islam', 'rabidislam@hotmail.com', 'CSE', 1624585608, '$2y$10$KJiCGKUdyAAPhcNAhJxeLuyvY1Ul2IWh.oooU2GZFZc5RihHO21fS', '1551366085.jpg', NULL, '2019-03-05 13:21:00', '2019-02-28 09:01:25', '2019-03-05 13:21:00'),
+(14, 'superadmin', '121243422', 'Super', 'Admin', 'Super Admin', 'superadmin@onlineta.com', 'ALL', 9873546723, '$2y$10$eIw.SbAAekC4kerloTbM1e2cO8uCM1A44T4WB3t0hgjn86jQ53C02', '1551691288.png', NULL, '2019-03-06 02:45:36', '2019-03-04 03:21:28', '2019-03-06 02:45:36'),
+(16, 'employee', '11235544', 'teacher1', 'one', 'teacher sakib', 'teacher@onlineta.com', 'bba', 6576, '$2y$10$gEqijPwCLBun1Hejo6B1u.hbxjMhGbwhGayKkY2ivlAogwaj9Huj.', '1551779998.png', '{\"user.update\":false}', NULL, '2019-03-04 13:54:21', '2019-03-05 03:59:58'),
+(20, 'student', '151-15-313', 'Tohfae Masrura', 'Sumaia', 'Tohfae Masrura Sumaia', 'tohfa@onlineta.com', 'cse', 1639219939, '$2y$10$o/fC4rDEYhdFVM9Kbpedteqh6GidHvWzuAst7w5qq57Hf3pKlO.wi', '1551813936.jpg', NULL, '2019-03-06 02:47:51', '2019-03-05 13:25:37', '2019-03-06 02:47:51');
 
 --
 -- Indexes for dumped tables
@@ -446,9 +533,27 @@ ALTER TABLE `activations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `classrooms`
+--
+ALTER TABLE `classrooms`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `libraries`
+--
+ALTER TABLE `libraries`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `notices`
+--
+ALTER TABLE `notices`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -499,19 +604,37 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `activations`
 --
 ALTER TABLE `activations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
+-- AUTO_INCREMENT for table `classrooms`
+--
+ALTER TABLE `classrooms`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `libraries`
+--
+ALTER TABLE `libraries`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `notices`
+--
+ALTER TABLE `notices`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `persistences`
 --
 ALTER TABLE `persistences`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=190;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=208;
 
 --
 -- AUTO_INCREMENT for table `reminders`
@@ -529,13 +652,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `throttle`
 --
 ALTER TABLE `throttle`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=206;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
