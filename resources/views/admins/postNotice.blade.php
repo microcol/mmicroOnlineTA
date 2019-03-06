@@ -26,12 +26,6 @@
 				  <input class="input-xlarge focused" id="focusedInput" type="text" name="department" required>
 				</div>
 			  </div>
-			  <!-- <div class="control-group">
-				<label class="control-label" for="focusedInput">Description</label>
-				<div class="controls">
-				  <input class="input-xlarge focused" id="focusedInput" type="text" name="description" required>
-				</div>
-			  </div> -->
               <div class="control-group">
 				<label class="control-label" for="focusedInput">Description</label>
 				<div class="controls">
@@ -43,7 +37,7 @@
 			  <div class="control-group">
 				<label class="control-label" for="focusedInput">Attachment</label>
 				<div class="controls">
-				  <input class="input-xlarge focused" id="focusedInput" type="file" name="file">
+				  <input class="input-xlarge focused" id="focusedInput" type="file" name="file" required>
 			   </div>
 			  </div>    
 			  <div class="form-actions">

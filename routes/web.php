@@ -15,7 +15,9 @@
 Route::get('/login','LoginController@login');
 Route::post('/login','LoginController@dashboard');
 Route::post('/student_login','LoginController@studentDashboard');
-Route::get('/','UserController@userPanel');
+Route::get('/','NoticeController@userHome');
+Route::get('/view-notice/{id}','NoticeController@userViewNotice');
+Route::get('view-notice/','NoticeController@adminViewNotice');
 
 /* ################ ROUTE GROUP FOR ADMIN PANEL ################ */
 
@@ -33,6 +35,7 @@ Route::get('/classroom_panel','ClassroomController@index');
 Route::post('/create-department','ClassroomController@createDepartment');
 Route::get('/notice','NoticeController@index');
 Route::post('/post-notice','NoticeController@postNotice');
+
 
 /* ################ ROUTE GROUP FOR USER PANEL ################ */
 

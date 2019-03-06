@@ -41,4 +41,20 @@ class NoticeController extends Controller
         }
 
     }
+
+    public function userHome() {
+        $notices= Notice::all();
+        return view('users.index')->with('notices',$notices);
+    }
+    
+    public function userViewNotice($id) {
+        $viewNotice= Notice::findorFail($id);
+        return view('users.singleNotice',compact('viewNotice'));
+    }
+    
+    public function adminViewNotice() {
+        $notices= Notice::all();
+        return view('admins.allNotices')->with('notices',$notices);
+    }
+
 }

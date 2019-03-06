@@ -47,61 +47,23 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th scope="col">Serial No.</th>
       <th scope="col">Title</th>
-      <th scope="col">Updated On</th>
       <th scope="col">Department</th>
+      <th scope="col">Posted On</th>
     </tr>
   </thead>
   <tbody>
+  @foreach($notices as $notice)
     <tr>
-      <th scope="row">1</th>
-      <td>Demo notice for check something...</td>
-      <td>14/11/2018</td>
-      <td>CSE</td>
+      <th scope="row">
+        <a href="view-notice/{{ $notice->id }}" target="_blank">
+          {{ $notice->notice_title }}
+        </a>
+      </th>
+      <td>{{ $notice->department }}</td>
+      <td>{{ $notice->created_at->format('d/m/Y') }}</td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>What is Lorem Ipsum?</td>
-      <td>17/11/2018</td>
-      <td>EEE</td>
-    </tr>
-    <tr><tr>
-      <th scope="row">3</th>
-      <td>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</td>
-      <td>14/10/2018</td>
-      <td>BBA</td>
-    </tr>
-    <tr><tr>
-      <th scope="row">4</th>
-      <td>Demo notice for check something...</td>
-      <td>14/09/2018</td>
-      <td>ETE</td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Demo notice for check something...</td>
-      <td>14/11/2018</td>
-      <td>CSE</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>What is Lorem Ipsum?</td>
-      <td>17/11/2018</td>
-      <td>EEE</td>
-    </tr>
-    <tr><tr>
-      <th scope="row">3</th>
-      <td>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</td>
-      <td>14/10/2018</td>
-      <td>BBA</td>
-    </tr>
-    <tr><tr>
-      <th scope="row">4</th>
-      <td>Demo notice for check something...</td>
-      <td>14/09/2018</td>
-      <td>ETE</td>
-    </tr>
+  @endforeach  
   </tbody>
 </table>
 
