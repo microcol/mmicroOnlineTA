@@ -10,6 +10,8 @@ use Sentinel;
 
 use App\Post;
 
+use App\Comment;
+
 
 class PostController extends Controller
 {
@@ -41,12 +43,14 @@ class PostController extends Controller
 
         $singleBlog=DB::table('posts')
             ->join('users','posts.user_id','users.id')
-            ->select('posts.*','users.*')
+            ->select('posts.*','users.full_name')
             ->where('posts.id',$id)
             ->first();
 
         return view('users.single_blog_post')->with('singleBlog',$singleBlog);
     }
+
+
 
 
 }

@@ -36,7 +36,7 @@
 
         <!-- Post Content -->
         <p>
-        {{ $singleBlog->post }}
+          {{ $singleBlog->post }}
         </p>
 
         <hr>
@@ -47,13 +47,14 @@
           <h5 class="card-header">Leave a Comment:</h5>
           <div class="card-body">
 
-            <form action="post-comment/" method="post">
+            <form action="{{ route('post-comment') }}" method="post">
             @csrf
               <div class="form-group">
                 <textarea name="comment" class="form-control" rows="3"></textarea>
               </div>
-              <input type="hidden" value="{{ Sentinel::getUser()->id }}">
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <input type="hidden" name="user_id" value="{{ Sentinel::getUser()->id }}">
+              <input type="hidden" name="post_id" value="{{ $singleBlog->id }}">
+              <button type="submit" class="btn btn-primary">Comment Now</button>
             </form>
 
           </div>
@@ -61,12 +62,17 @@
 
         <!-- Single Comment -->
         <div class="media mb-4">
-          <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+          <img class="d-flex mr-3 rounded-circle" src="">
           <div class="media-body">
             <h5 class="mt-0">Commenter Name</h5>
             Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            <hr>
+            <p style="font-size:12px; margin:0; padding:0;">
+                5 minutes ago
+            </p>
           </div>
         </div>
+        
 
         <!-- Comment with nested comments -->
         <div class="media mb-4">

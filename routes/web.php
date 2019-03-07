@@ -41,6 +41,7 @@ Route::post('/post-notice','NoticeController@postNotice');
 
 Route::get('/blog','PostController@viewBlog');
 Route::post('post-blog/','PostController@postBlog');
+Route::post('/post-comment', ['as'=>'post-comment', 'uses' => 'CommentController@postComment']);
 Route::get('/profile','UserController@profile');
 Route::get('/single_blog_post/{id}','PostController@single_blog_post');
 Route::get('/classroom','UserController@classroom');
