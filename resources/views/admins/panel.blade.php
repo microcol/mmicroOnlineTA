@@ -135,6 +135,7 @@
             <li><a href="{{ URL::to('allStudents') }}"><i class="icon-envelope"></i><span class="hidden-tablet">All Students</span></a></li>
             <li><a href="{{ URL::to('notice') }}"><i class="icon-envelope"></i><span class="hidden-tablet">Post Notices</span></a></li>
             <li><a href="{{ URL::to('view-notice') }}"><i class="icon-envelope"></i><span class="hidden-tablet">All Notices</span></a></li>
+            <li><a href="{{ URL::to('view-blogs') }}"><i class="icon-envelope"></i><span class="hidden-tablet">All Blogs</span></a></li>
             <li><a href="{{ URL::to('library-panel') }}"><i class="icon-envelope"></i><span class="hidden-tablet">Add Book to Library</span></a></li>
             <li><a href="{{ URL::to('view-book') }}"><i class="icon-envelope"></i><span class="hidden-tablet">View Books</span></a></li>
             <li><a href="{{ URL::to('/classroom_panel') }}"><i class="icon-envelope"></i><span class="hidden-tablet">Classroom</span></a></li>

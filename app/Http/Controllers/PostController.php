@@ -38,6 +38,16 @@ class PostController extends Controller
 
         return view('users.blog',compact('viewBlogs'));
     }
+    
+    public function viewBlogForAdmin() {
+        
+        $viewBlogs=DB::table('posts')
+            ->join('users','posts.user_id','users.id')
+            ->select('posts.*','users.full_name')
+            ->get();
+
+        return view('admins.allBlogs',compact('viewBlogs'));
+    }
 
     public function single_blog_post($id) {
 
@@ -49,6 +59,19 @@ class PostController extends Controller
 
         return view('users.single_blog_post')->with('singleBlog',$singleBlog);
     }
+    
+    public function viewSingleBlogForAdmin($id) {
+
+        $singleBlog=DB::table('posts')
+            ->join('users','posts.user_id','users.id')
+            ->select('posts.*','users.full_name')
+            ->where('posts.id',$id)
+            ->first();
+
+        return view('admins.viewSingleBlog')->with('singleBlog',$singleBlog);
+    }
+    
+    
 
 
 

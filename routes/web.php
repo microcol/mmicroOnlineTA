@@ -35,6 +35,9 @@ Route::get('/classroom_panel','ClassroomController@index');
 Route::post('/create-department','ClassroomController@createDepartment');
 Route::get('/notice','NoticeController@index');
 Route::post('/post-notice','NoticeController@postNotice');
+Route::get('/view-blogs','PostController@viewBlogForAdmin');
+Route::get('/view-single-blog/{id}','PostController@viewSingleBlogForAdmin');
+
 
 
 /* ################ ROUTE GROUP FOR USER PANEL ################ */
