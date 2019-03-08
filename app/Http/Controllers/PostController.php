@@ -56,8 +56,16 @@ class PostController extends Controller
             ->select('posts.*','users.full_name')
             ->where('posts.id',$id)
             ->first();
+        
+        $comments = DB::table('comments')
+            ->where('post_id',$id)
+            ->get();
 
-        return view('users.single_blog_post')->with('singleBlog',$singleBlog);
+
+        
+        return view('users.single_blog_post')
+            ->with('singleBlog',$singleBlog)
+            ->with('comments',$comments);
     }
     
     public function viewSingleBlogForAdmin($id) {

@@ -53,6 +53,7 @@
                 <textarea name="comment" class="form-control" rows="3"></textarea>
               </div>
               <input type="hidden" name="user_id" value="{{ Sentinel::getUser()->id }}">
+              <input type="hidden" name="full_name" value="{{ Sentinel::getUser()->full_name }}">
               <input type="hidden" name="post_id" value="{{ $singleBlog->id }}">
               <button type="submit" class="btn btn-primary">Comment Now</button>
             </form>
@@ -60,18 +61,27 @@
           </div>
         </div>
 
-        <!-- Single Comment -->
-        <div class="media mb-4">
-          <img class="d-flex mr-3 rounded-circle" src="">
-          <div class="media-body">
-            <h5 class="mt-0">Commenter Name</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-            <hr>
-            <p style="font-size:12px; margin:0; padding:0;">
-                5 minutes ago
-            </p>
+@if($comments->count() == 0)
+
+    <p>No comments to show</p>
+@else
+
+        @foreach($comments as $comment)
+            <!-- Single Comment -->
+            <div class="media mb-4">
+            <img class="d-flex mr-3 rounded-circle" src="">
+            <div class="media-body">
+              <h5 class="mt-0">{{ $comment->full_name }}</h5>
+              {{ $comment->comment }}
+              <hr>
+              <p style="font-size:12px; margin:0; padding:0;">
+              {{ Carbon\Carbon::parse($comment->created_at)->diffForHumans() }}
+              </p>
+            </div>
           </div>
-        </div>
+    @endforeach  
+@endif
+
         
 
         
