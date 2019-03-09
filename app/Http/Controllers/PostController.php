@@ -58,6 +58,8 @@ class PostController extends Controller
             ->first();
         
         $comments = DB::table('comments')
+            ->join('users','comments.user_id','users.id')
+            ->select('comments.*','users.photo')
             ->where('post_id',$id)
             ->get();
 

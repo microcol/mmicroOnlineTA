@@ -69,7 +69,7 @@
         @foreach($comments as $comment)
             <!-- Single Comment -->
             <div class="media mb-4">
-            <img class="d-flex mr-3 rounded-circle" src="">
+            <img class="d-flex mr-3 rounded-circle" src="{{ asset('/uploads/images').'/'.$comment->photo }}">
             <div class="media-body">
               <h5 class="mt-0">{{ $comment->full_name }}</h5>
               {{ $comment->comment }}
