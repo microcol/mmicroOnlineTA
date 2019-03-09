@@ -46,6 +46,13 @@
                   </a>
                 </form>
               </li>
+              <li>
+                <img style="margin-left:15px; margin:-5px 0 5px 0; height:50px; width:50px; border-radius:50%;"
+                src="{{ asset('uploads/images').'/'.Sentinel::getUser()->photo }}">
+              </li>
+              <li style="margin-top:12px;">
+                {{ Sentinel::getUser()->full_name }}
+              </li>
             @else 
               <li data-toggle="modal" data-target="#logInModal">
                 <a href="#">

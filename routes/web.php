@@ -47,7 +47,6 @@ Route::post('/post-blog','PostController@postBlog');
 Route::post('/post-comment', ['as'=>'post-comment', 'uses' => 'CommentController@postComment']);
 Route::get('/profile','UserController@profile');
 Route::get('/single_blog_post/{id}',['as'=>'single_blog_post', 'uses' => 'PostController@single_blog_post']);
-
 Route::get('/classroom','UserController@classroom');
 Route::get('/classroom_details','UserController@classroom_details');
 Route::get('/library','LibraryController@viewBookToUsers');
