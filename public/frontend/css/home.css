@@ -266,13 +266,17 @@ body{
 }
 .postContent ul {
 	margin: 0;
+	margin-top: 8px;
 	padding: 0;
-	margin-left: 35px;
+	margin-left: 0px;
 }
 .postContent ul li {
 	list-style: none;
 	float: left;
 	margin-right: 15px;
+}
+.postContent ul li a {
+	color:#2f3239;
 }
 .postContent ul li span{
 	font-size: 15px;

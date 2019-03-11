@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use Sentinel;
 
+use DB;
+
 class UserController extends Controller
 {
 
@@ -18,8 +20,19 @@ class UserController extends Controller
     }
     
     public function profile() {
+
+
+        $viewBlogs=DB::table('posts')
+            ->join('users','posts.user_id','users.id')
+            ->select('posts.*','users.full_name','users.photo')
+            ->orderBy('posts.id', 'DESC')
+            ->get();
+
+
         $userInfo=Sentinel::getUser();
-        return view('users.profile')->with('userInfo',$userInfo);
+        return view('users.profile')
+            ->with('userInfo',$userInfo)
+            ->with('viewBlogs',$viewBlogs);
     }
 
     public function single_blog_post() {

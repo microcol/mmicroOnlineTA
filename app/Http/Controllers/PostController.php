@@ -33,7 +33,8 @@ class PostController extends Controller
         
         $viewBlogs=DB::table('posts')
             ->join('users','posts.user_id','users.id')
-            ->select('posts.*','users.full_name')
+            ->select('posts.*','users.full_name','users.photo')
+            ->orderBy('posts.id', 'DESC')
             ->get();
 
         return view('users.blog',compact('viewBlogs'));
@@ -61,6 +62,7 @@ class PostController extends Controller
             ->join('users','comments.user_id','users.id')
             ->select('comments.*','users.photo')
             ->where('post_id',$id)
+            ->orderBy('comments.id', 'DESC')
             ->get();
 
 

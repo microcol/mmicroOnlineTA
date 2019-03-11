@@ -63,107 +63,58 @@
           
 <ul class="nav nav-tabs tabsCustomCss" id="myTab" role="tablist">
   <li class="nav-item">
-    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Recent Blog Posts</a>
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">My Recent Posts</a>
   </li>
 </ul>
 <div class="tabsBgFixed">
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
-  <a style="text-decoration: none; color: #000;" href="#">  
+  @foreach($viewBlogs as $viewBlog)
+
     <div class="blogPost">
       <div class="row">
         <div class="col-md-3">
           <div class="posterInfo">
             <div class="pIimage">
-              <img src="images/male.png">
+              <img src="{{ asset('uploads/images').'/'.$viewBlog->photo }}">
             </div>
-            <h5>Name namename Name</h5>
+            <h5>{{ $viewBlog->full_name }}</h5>
           </div>
         </div>
         <div class="col-md-9">
           <div class="postContent">
-            <h3>This is my first Question</h3>
             <p>
-              Duis dapibus aliquam mi, eget euismod sem scelerisque ut. Vivamus at elit quis...
+              {{ str_limit($viewBlog->post, $limit = 220, $end = '...') }}
             </p>
-            <hr style="border: 1px solid #000;">
+            <hr style="border: 1px solid #000; margin:0px;">
             <ul>
               <li>
-                <span><i class="far fa-clock"></i>4 Min</span>
+                <span><i class="far fa-clock"></i>
+                  {{ Carbon\Carbon::parse($viewBlog->created_at)->diffForHumans() }}
+                </span>
               </li>
               <li>
-                <span><i class="fas fa-comment"></i>45 Comments</span>
+                <a href="single_blog_post/{{ $viewBlog->id}}">
+                  <span><i class="fas fa-inbox"></i>View Comments</span>
+                </a>
               </li>
+              @if(Sentinel::getUser()->id == $viewBlog->user_id)
+                <li>
+                  <a href="#">
+                    <span><i class="fas fa-trash"></i>
+                      Delete    
+                    </span>
+                  </a>
+                </li>
+              @endif  
             </ul>
           </div>
         </div>
       </div>
     </div>
-  </a>
-  <a style="text-decoration: none; color: #000;" href="#">  
-    <div class="blogPost">
-      <div class="row">
-        <div class="col-md-3">
-          <div class="posterInfo">
-            <div class="pIimage">
-              <img src="images/male.png">
-            </div>
-            <h5>Name namename Name</h5>
-          </div>
-        </div>
-        <div class="col-md-9">
-          <div class="postContent">
-            <h3>This is my first Question</h3>
-            <p>
-              Duis dapibus aliquam mi, eget euismod sem scelerisque ut. Vivamus at elit quis...
-            </p>
-            <hr style="border: 1px solid #000;">
-            <ul>
-              <li>
-                <span><i class="far fa-clock"></i>4 Min</span>
-              </li>
-              <li>
-              <li>
-                <span><i class="fas fa-comment"></i>45 Comments</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-  <a style="text-decoration: none; color: #000;" href="#">  
-    <div class="blogPost">
-      <div class="row">
-        <div class="col-md-3">
-          <div class="posterInfo">
-            <div class="pIimage">
-              <img src="images/male.png">
-            </div>
-            <h5>Name namename Name</h5>
-          </div>
-        </div>
-        <div class="col-md-9">
-          <div class="postContent">
-            <h3>This is my first Question</h3>
-            <p>
-              Duis dapibus aliquam mi, eget euismod sem scelerisque ut. Vivamus at elit quis...
-            </p>
-            <hr style="border: 1px solid #000;">
-            <ul>
-              <li>
-                <span><i class="far fa-clock"></i>4 Min</span>
-              </li>
-              <li>
-                <span><i class="fas fa-comment"></i>45 Comments</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
+
+  @endforeach
 
   </div>
 
