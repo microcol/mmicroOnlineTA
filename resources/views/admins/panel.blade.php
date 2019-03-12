@@ -139,6 +139,7 @@
             <li><a href="{{ URL::to('library-panel') }}"><i class="icon-envelope"></i><span class="hidden-tablet">Add Book to Library</span></a></li>
             <li><a href="{{ URL::to('view-book') }}"><i class="icon-envelope"></i><span class="hidden-tablet">View Books</span></a></li>
             <li><a href="{{ URL::to('/classroom_panel') }}"><i class="icon-envelope"></i><span class="hidden-tablet">Classroom</span></a></li>
+            <li><a href="{{ URL::to('/view_classroom') }}"><i class="icon-envelope"></i><span class="hidden-tablet">View Classrooms</span></a></li>
 
           @elseif (Sentinel::check() && Sentinel::getUser()->user_type=="employee")
 
@@ -163,7 +164,7 @@
         </div>
       </noscript> -->
       
-<div class="formBox" style="min-height: 400px; width: 76%; margin: 0 auto; margin-bottom: 50px; margin-left: 252px;">
+<div class="formBox" style="min-height: 500px; width: 76%; margin: 0 auto; margin-bottom: 50px; margin-left: 252px;">
 
      @yield('content')
 
@@ -193,9 +194,9 @@
   
     <script src="{{ asset('backend/js/jquery.cookie.js') }}"></script>
   
-    <script src='{{ asset('backend/js/fullcalendar.min.js') }}'></script>
+    <script src="{{ asset('backend/js/fullcalendar.min.js') }}"></script>
   
-    <script src='{{ asset('backend/js/jquery.dataTables.min.js') }}'></script>
+    <script src="{{ asset('backend/js/jquery.dataTables.min.js') }}"></script>
 
     <script src="{{ asset('backend/js/excanvas.js') }}"></script>
     <script src="{{ asset('backend/js/jquery.flot.js') }}"></script>

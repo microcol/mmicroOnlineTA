@@ -20,26 +20,12 @@
   <div class="form-group mx-sm-3 mb-2">
     <input type="text" class="form-control" name="course_code" placeholder="Add Course Code">
   </div>
+  <div class="form-group mx-sm-3 mb-2">
+    <input type="hidden" class="form-control" name="classroom_code" value="{{ $generateClassroomCode }}" placeholder="Generate Classroom Code" readonly>
+  </div>
   <button type="submit" class="btn btn-primary mb-2">Save</button>
 </form>
 
-
-
-<form class="form">
-  <div class="form-group mx-sm-3 mb-2">
-    <select>
-    @foreach($courseInfo as $courseCode)
-        <option valuse="{{ $courseCode->course_code }}">{{ $courseCode->course_code }}</option>
-    @endforeach
-    </select>
-  </div>
-  <div class="form-group mx-sm-3 mb-2">
-    <input type="text" class="form-control" id="inputPassword2" placeholder="Generate Classroom Code" readonly>
-  </div>
-  <button type="submit" class="btn btn-primary mb-2">Generate</button>
-  <button type="button" class="btn btn-primary mb-2">Save</button>
-  <button type="button" class="btn btn-primary mb-2">Copy</button>
-</form>
 
 
 
