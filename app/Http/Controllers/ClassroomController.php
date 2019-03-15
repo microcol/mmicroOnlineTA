@@ -85,11 +85,6 @@ class ClassroomController extends Controller
 
         $getClassCode= $request->validate_classroom_code;
 
-
-        // $getCourseId= Input::get('classroom_id_{{ $course->id }}');
-
-  
-
         $checkClassCode= DB::table('Classrooms')
             ->where('classroom_code',$getClassCode)
             ->get();
