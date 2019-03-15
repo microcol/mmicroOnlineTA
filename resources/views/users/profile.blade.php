@@ -57,7 +57,7 @@
 <section class="mainContent">
   <div class="container">
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-12">
         <div class="blogNforum">
           <div class="bfContent">
           
@@ -85,7 +85,7 @@
         <div class="col-md-9">
           <div class="postContent">
             <p>
-              {{ str_limit($viewBlog->post, $limit = 220, $end = '...') }}
+              {{ str_limit($viewBlog->post, $limit = 400, $end = '...') }}
             </p>
             <hr style="border: 1px solid #000; margin:0px;">
             <ul>
@@ -226,7 +226,7 @@
     </div>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4" style="display:none;">
         <div class="sideBar">
           <h1>STATS</h1>
           <hr class="sideBarHr">
