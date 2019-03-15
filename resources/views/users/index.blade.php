@@ -79,22 +79,22 @@
           <h1>STATS</h1>
           <hr class="sideBarHr">
           <div class="sideBarStatBox">
-            <h3><i class="fas fa-users"></i>USERS (345)</h3>
+            <h3><i class="fas fa-users"></i>USERS ({{ $totalUsers }})</h3>
           </div>
           <div class="sideBarStatBox">
-            <h3><i class="fas fa-chalkboard"></i>BLOG POSTS (345)</h3>
+            <h3><i class="fas fa-chalkboard"></i>BLOG POSTS ({{ $totalPosts }})</h3>
           </div>
           <div class="sideBarStatBox">
-            <h3><i class="fas fa-exclamation-circle"></i>FORUM POSTS (345)</h3>
+            <h3><i class="fas fa-book-reader"></i>BOOKS ({{ $totalBooks }})</h3>
           </div>
           <div class="sideBarStatBox">
-            <h3><i class="fas fa-book-reader"></i>BOOKS (345)</h3>
+            <h3><i class="fas fa-chalkboard-teacher"></i>CLASSROOMS ({{ $totalClassrooms }})</h3>
           </div>
           <div class="sideBarStatBox">
-            <h3><i class="fas fa-chalkboard-teacher"></i>CLASSROOMS (345)</h3>
+            <h3><i class="fas fa-user-graduate"></i>ENROLLED STUDENTS ({{ $totalEnrolledStudents }})</h3>
           </div>
           <div class="sideBarStatBox">
-            <h3><i class="fas fa-user-graduate"></i>ENROLLED STUDENTS (345)</h3>
+            <h3><i class="fas fa-sticky-note"></i>TOTAL NOTICES ({{ $totalNotices }})</h3>
           </div>
         </div>
       </div>

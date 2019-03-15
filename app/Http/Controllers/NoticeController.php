@@ -6,7 +6,19 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Storage;
 
+use Sentinel;
+
+use App\Post;
+
+use App\Library;
+
 use App\Notice;
+
+use App\User;
+
+use App\Registereds;
+
+use App\Classroom;
 
 class NoticeController extends Controller
 {
@@ -43,8 +55,25 @@ class NoticeController extends Controller
     }
 
     public function userHome() {
+
+        $totalUsers= User::count();
+        $totalPosts= Post::count();
+        $totalNotices= Notice::count();
+        $totalBooks= Library::count();
+        $totalClassrooms= Classroom::count();
+        $totalEnrolledStudents= Registereds::distinct()->get(['student_id'])->count();
+
+
         $notices= Notice::all();
-        return view('users.index')->with('notices',$notices);
+        return view('users.index')
+            ->with('notices',$notices)
+            ->with('totalUsers',$totalUsers)
+            ->with('totalPosts',$totalPosts)
+            ->with('totalNotices',$totalNotices)
+            ->with('totalBooks',$totalBooks)
+            ->with('totalClassrooms',$totalClassrooms)
+            ->with('totalEnrolledStudents',$totalEnrolledStudents);
+            
     }
     
     public function userViewNotice($id) {
