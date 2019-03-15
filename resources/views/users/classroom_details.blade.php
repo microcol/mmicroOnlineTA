@@ -18,14 +18,6 @@
 						</li>
 						<li>
 							<div class="sidebarNav">
-								<form action="#" class="joinClass">
-									<input type="text" name="" placeholder="Join Classroom">
-									<input type="submit" name="" value="Join">
-								</form>
-							</div>
-						</li>
-						<li>
-							<div class="sidebarNav">
 								<a href="#">
 									<h3>View Classmates</h3>
 								</a>
@@ -38,7 +30,7 @@
 			<div class="col-md-9 col-xs-12">
 				<div class="classroomArea">
 					<div class="media">
-					  <img class="mr-3" src="{{ asset('frontend/images/male.png') }}" alt="Generic placeholder image">
+					  <img class="mr-3" src="{{ asset('uploads/images').'/'.$getUserInfos[0]->photo }}">
 					  <div class="media-body">
 					  	<form>
 					  		<textarea class="postClass"></textarea>

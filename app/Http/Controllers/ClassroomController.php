@@ -124,4 +124,19 @@ class ClassroomController extends Controller
     }
 
 
+    public function classroom_details($id) {
+
+        $getUserId= Sentinel::getUser()->id;
+
+        $getUserInfos= DB::table('users')
+            ->select('users.photo')
+            ->where('id',$getUserId)
+            ->get();
+
+        // return redirect()->back();
+
+        return view('users.classroom_details')->with('getUserInfos',$getUserInfos);
+    }
+
+
 }
