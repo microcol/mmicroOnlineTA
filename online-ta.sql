@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 12, 2019 at 09:53 PM
+-- Generation Time: Mar 15, 2019 at 11:54 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -168,7 +168,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (5, '2019_03_05_180502_create_libraries_table', 3),
 (6, '2019_03_05_192833_create_notices_table', 4),
 (7, '2019_03_06_184818_create_posts_table', 5),
-(8, '2019_03_07_143521_create_comments_table', 6);
+(8, '2019_03_07_143521_create_comments_table', 6),
+(9, '2019_03_13_082314_create_registereds_table', 7);
 
 -- --------------------------------------------------------
 
@@ -272,7 +273,18 @@ INSERT INTO `persistences` (`id`, `user_id`, `code`, `created_at`, `updated_at`)
 (238, 20, 'rccfLGlkej6ThOpkSBUUfwF9eLuRSMSo', '2019-03-12 04:01:07', '2019-03-12 04:01:07'),
 (240, 14, 'HG7G5Iu9CH1PeM6RyeJpQurnLcNr4G0j', '2019-03-12 04:57:19', '2019-03-12 04:57:19'),
 (241, 14, '0Yzc8Mar3vP7Rexn50vL1lncUt9xIARW', '2019-03-12 13:19:07', '2019-03-12 13:19:07'),
-(242, 20, 'ZedTN70gTQYbzU6pty9A5u2W5enp8Hmw', '2019-03-12 14:06:51', '2019-03-12 14:06:51');
+(242, 20, 'ZedTN70gTQYbzU6pty9A5u2W5enp8Hmw', '2019-03-12 14:06:51', '2019-03-12 14:06:51'),
+(244, 20, 'XXjoM89AgMnlUqo4dIvOt4hBxrUjgyvQ', '2019-03-13 02:11:55', '2019-03-13 02:11:55'),
+(245, 13, 'bZqrG75gdWxQpvbZohLvZ0cM9x8YA425', '2019-03-13 03:02:48', '2019-03-13 03:02:48'),
+(246, 14, 'BxgSFghBSh2gl94FSVVRQpKj7HNzyI1j', '2019-03-13 03:36:24', '2019-03-13 03:36:24'),
+(247, 13, 'jICVNFw1z2EfLWrjyCg9FfapL2mSva73', '2019-03-13 09:07:19', '2019-03-13 09:07:19'),
+(248, 20, 'd4R0bQkXQSmjeuzUObYaX3bkWiHOA3aU', '2019-03-13 09:07:24', '2019-03-13 09:07:24'),
+(249, 13, 'oflHtNzxfqcYpBXQkEkRi2Kx5pKmNzeB', '2019-03-13 12:07:11', '2019-03-13 12:07:11'),
+(250, 20, '6Tk5dhBhDpsiuZeXaVjSdOfXXh5NMXdg', '2019-03-13 12:08:12', '2019-03-13 12:08:12'),
+(251, 13, 'sXeC5pZhIrM3nj0IdNnPcOxJVky45LYs', '2019-03-14 07:06:14', '2019-03-14 07:06:14'),
+(252, 13, '7IGusVBnme2yddJBM11lfLNZGz3huGqV', '2019-03-14 07:25:07', '2019-03-14 07:25:07'),
+(253, 13, 'c8CN00sVDaKJnVqGHLV4cpCX6gQZv5iM', '2019-03-15 04:31:47', '2019-03-15 04:31:47'),
+(254, 20, 'XFoFLpFjAtkA6bbR1b6SICTXn5VPRxcz', '2019-03-15 04:31:53', '2019-03-15 04:31:53');
 
 -- --------------------------------------------------------
 
@@ -295,6 +307,32 @@ CREATE TABLE `posts` (
 INSERT INTO `posts` (`id`, `user_id`, `post`, `created_at`, `updated_at`) VALUES
 (1, '13', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. \r\nMany desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy.', '2019-03-06 13:42:54', '2019-03-06 13:42:54'),
 (2, '20', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. \r\nIt has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2019-03-06 13:46:18', '2019-03-06 13:46:18');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `registereds`
+--
+
+CREATE TABLE `registereds` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `student_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `classroom_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `full_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `classroom_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `registereds`
+--
+
+INSERT INTO `registereds` (`id`, `student_id`, `classroom_id`, `full_name`, `course_title`, `course_code`, `classroom_code`, `created_at`, `updated_at`) VALUES
+(1, '13', '7', 'Md Mohaiminul Islam', 'Advanced spoken english', 'eng123', '9138hs', NULL, NULL),
+(2, '20', '8', 'Tohfae Masrura Sumaia', 'Problem Solving', 'cse432', '4ey41m', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -593,10 +631,10 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `user_type`, `varsity_id`, `first_name`, `last_name`, `full_name`, `email`, `department`, `phone`, `password`, `photo`, `permissions`, `last_login`, `created_at`, `updated_at`) VALUES
 (12, 'employee', '1123554', 'teacher1', 'one', 'teacher one', 'teacher@onlineta.com', 'bba', 6576, '$2y$10$1nsiUzvpHH5wafk7//eeoOvwm3n9S8FD2rHsMKn8rRw/.kXNH1hRi', '1551364876.jpg', NULL, '2019-03-04 03:33:37', '2019-02-28 08:41:17', '2019-03-04 03:33:37'),
-(13, 'student', '151-15-335', 'Md Mohaiminul', 'Islam', 'Md Mohaiminul Islam', 'rabidislam@hotmail.com', 'CSE', 1624585608, '$2y$10$KJiCGKUdyAAPhcNAhJxeLuyvY1Ul2IWh.oooU2GZFZc5RihHO21fS', '1551366085.jpg', NULL, '2019-03-12 04:00:57', '2019-02-28 09:01:25', '2019-03-12 04:00:57'),
-(14, 'superadmin', '121243422', 'Super', 'Admin', 'Super Admin', 'superadmin@onlineta.com', 'ALL', 9873546723, '$2y$10$eIw.SbAAekC4kerloTbM1e2cO8uCM1A44T4WB3t0hgjn86jQ53C02', '1551691288.png', NULL, '2019-03-12 13:19:07', '2019-03-04 03:21:28', '2019-03-12 13:19:07'),
+(13, 'student', '151-15-335', 'Md Mohaiminul', 'Islam', 'Md Mohaiminul Islam', 'rabidislam@hotmail.com', 'CSE', 1624585608, '$2y$10$KJiCGKUdyAAPhcNAhJxeLuyvY1Ul2IWh.oooU2GZFZc5RihHO21fS', '1551366085.jpg', NULL, '2019-03-15 04:31:47', '2019-02-28 09:01:25', '2019-03-15 04:31:47'),
+(14, 'superadmin', '121243422', 'Super', 'Admin', 'Super Admin', 'superadmin@onlineta.com', 'ALL', 9873546723, '$2y$10$eIw.SbAAekC4kerloTbM1e2cO8uCM1A44T4WB3t0hgjn86jQ53C02', '1551691288.png', NULL, '2019-03-13 03:36:25', '2019-03-04 03:21:28', '2019-03-13 03:36:25'),
 (16, 'employee', '11235544', 'teacher1', 'one', 'teacher sakib', 'teacher@onlineta.com', 'bba', 6576, '$2y$10$gEqijPwCLBun1Hejo6B1u.hbxjMhGbwhGayKkY2ivlAogwaj9Huj.', '1551779998.png', '{\"user.update\":false}', NULL, '2019-03-04 13:54:21', '2019-03-05 03:59:58'),
-(20, 'student', '151-15-313', 'Tohfae Masrura', 'Sumaia', 'Tohfae Masrura Sumaia', 'tohfa@onlineta.com', 'cse', 1639219939, '$2y$10$o/fC4rDEYhdFVM9Kbpedteqh6GidHvWzuAst7w5qq57Hf3pKlO.wi', '1551813936.jpg', NULL, '2019-03-12 14:06:51', '2019-03-05 13:25:37', '2019-03-12 14:06:51'),
+(20, 'student', '151-15-313', 'Tohfae Masrura', 'Sumaia', 'Tohfae Masrura Sumaia', 'tohfa@onlineta.com', 'cse', 1639219939, '$2y$10$o/fC4rDEYhdFVM9Kbpedteqh6GidHvWzuAst7w5qq57Hf3pKlO.wi', '1551813936.jpg', NULL, '2019-03-15 04:31:53', '2019-03-05 13:25:37', '2019-03-15 04:31:53'),
 (22, 'student', '151-15-327', 'Saiful', 'Islam', 'Saiful Islam Rana', 'rana@onlineta.com', '151-15-327', 9124876545, '$2y$10$z5bd85pp32N37eIqQaevfeTjd1fN/i1UgOnZuREwQJgMarj9iAojy', '1552246270.jpg', NULL, '2019-03-10 13:31:46', '2019-03-10 13:31:10', '2019-03-10 13:31:46');
 
 --
@@ -653,6 +691,12 @@ ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `registereds`
+--
+ALTER TABLE `registereds`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `reminders`
 --
 ALTER TABLE `reminders`
@@ -699,7 +743,7 @@ ALTER TABLE `activations`
 -- AUTO_INCREMENT for table `classrooms`
 --
 ALTER TABLE `classrooms`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `comments`
@@ -717,7 +761,7 @@ ALTER TABLE `libraries`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `notices`
@@ -729,12 +773,18 @@ ALTER TABLE `notices`
 -- AUTO_INCREMENT for table `persistences`
 --
 ALTER TABLE `persistences`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=243;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=255;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `registereds`
+--
+ALTER TABLE `registereds`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --

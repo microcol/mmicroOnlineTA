@@ -18,10 +18,16 @@
 						</li>
 						<li>
 							<div class="sidebarNav">
-								<form action="#" class="joinClass">
-									<input type="text" name="" placeholder="Join Classroom">
-									<input type="submit" name="" value="Join">
+
+
+								<form action="enroll_course/" method="post" class="joinClass">
+								@csrf
+									<input type="text" name="validate_classroom_code" placeholder="Join Classroom">
+									<input type="hidden" name="student_id" value="{{ Sentinel::getUser()->id }}">
+									<input type="submit" value="Join">
 								</form>
+
+
 							</div>
 						</li>
 						

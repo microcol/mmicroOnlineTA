@@ -6,6 +6,13 @@ use Illuminate\Http\Request;
 
 use App\Classroom;
 
+use App\Registereds;
+
+use DB;
+
+use Illuminate\Support\Facades\Input;
+
+
 class ClassroomController extends Controller
 {
     public function index() {
@@ -57,6 +64,65 @@ class ClassroomController extends Controller
         $deleteClassroom->delete();
 
         return Redirect()->back();
+
+    }
+
+
+    public function userClassroomPanel() {
+
+        $courseInfo= Classroom::all();
+        
+        $generateClassroomCode= substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 6);
+        //dd($courseInfo,$generateClassroomCode);
+        return view('users.classroom')
+                ->with('courseInfo',$courseInfo)
+                ->with('generateClassroomCode',$generateClassroomCode);
+
+    }
+
+
+    public function enrollCourse(Request $request) {
+
+        $getClassCode= $request->validate_classroom_code;
+
+
+        // $getCourseId= Input::get('classroom_id_{{ $course->id }}');
+
+  
+
+        $checkClassCode= DB::table('Classrooms')
+            ->where('classroom_code',$getClassCode)
+            ->get();
+
+        $input = Input::all();
+
+        $student= DB::table('users')
+            ->where('id',$input['student_id'])
+            ->get();
+
+        if(count($checkClassCode)>0) {
+
+
+            DB::table('registereds')->insert(
+                [
+                'student_id'=>$student[0]->id,
+                'classroom_id'=>$checkClassCode[0]->id,
+                'full_name'=>$student[0]->full_name,
+                'course_title'=> $checkClassCode[0]->course_title,
+                'course_code'=>$checkClassCode[0]->course_code,
+                'classroom_code'=>$checkClassCode[0]->classroom_code,
+                
+                ]
+                  );	
+  
+            return redirect()->back();
+        }
+        
+        else {
+
+            return ('You entered wrong Classroom Code');
+
+        }
 
     }
 
