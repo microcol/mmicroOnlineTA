@@ -34,48 +34,30 @@
 					</ul>
 				</div>
 			</div>
+
+		@foreach($displayRegisteredsClassroooms as $enrolledStudents)
+
 			<div class="col-md-3">
 				<div class="classroomArea">
 					<div class="card" style="width: 18rem;">
 					  <img class="card-img-top" src="{{ asset('frontend/images/classroom.jpg') }}" alt="Card image cap">
 					  <div class="card-body">
-					    <h5 class="card-title">CSE 112</h5>
-					    <p>Problem Solving</p>
-					    <a href="{{ '/classroom_details' }}" class="btn btn-primary goToClass">
+					    <h5 class="card-title" style="text-transform: uppercase;">
+								{{ $enrolledStudents->course_code }}
+								</h5>
+					    <p>{{ $enrolledStudents->course_title }}</p>
+					    <a href="classroom_details/{{ $enrolledStudents->id }}" class="btn btn-primary goToClass">
 					    	View Classroom
 					    </a>
 					  </div>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-3">
-				<div class="classroomArea">
-					<div class="card" style="width: 18rem;">
-					  <img class="card-img-top" src="{{ asset('frontend/images/classroom.jpg') }}" alt="Card image cap">
-					  <div class="card-body">
-					    <h5 class="card-title">CSE 112</h5>
-					    <p>Problem Solving</p>
-					    <a href="{{ '/classroom_details' }}" class="btn btn-primary goToClass">
-					    	View Classroom
-					    </a>
-					  </div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3">
-				<div class="classroomArea">
-					<div class="card" style="width: 18rem;">
-					  <img class="card-img-top" src="{{ asset('frontend/images/classroom.jpg') }}" alt="Card image cap">
-					  <div class="card-body">
-					    <h5 class="card-title">CSE 112</h5>
-					    <p>Problem Solving</p>
-					    <a href="{{ '/classroom_details' }}" class="btn btn-primary goToClass">
-					    	View Classroom
-					    </a>
-					  </div>
-					</div>
-				</div>
-			</div>
+
+		@endforeach
+
+			
+
 		</div>
 	</div>
 </section>

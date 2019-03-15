@@ -12,6 +12,8 @@ use DB;
 
 use Illuminate\Support\Facades\Input;
 
+use Sentinel;
+
 
 class ClassroomController extends Controller
 {
@@ -70,13 +72,13 @@ class ClassroomController extends Controller
 
     public function userClassroomPanel() {
 
-        $courseInfo= Classroom::all();
-        
-        $generateClassroomCode= substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 6);
-        //dd($courseInfo,$generateClassroomCode);
-        return view('users.classroom')
-                ->with('courseInfo',$courseInfo)
-                ->with('generateClassroomCode',$generateClassroomCode);
+        $getCurrentStudentId= Sentinel::getUser()->id;
+
+        $displayRegisteredsClassroooms= DB::table('Registereds')
+            ->where('student_id',$getCurrentStudentId)
+            ->get();
+
+        return view('users.classroom')->with('displayRegisteredsClassroooms',$displayRegisteredsClassroooms);
 
     }
 
