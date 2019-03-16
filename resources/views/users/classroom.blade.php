@@ -46,7 +46,7 @@
 								{{ $enrolledStudents->course_code }}
 								</h5>
 					    <p>{{ $enrolledStudents->course_title }}</p>
-					    <a href="classroom_details/{{ $enrolledStudents->id }}" class="btn btn-primary goToClass">
+					    <a href="classroom_details/{{ $enrolledStudents->classroom_id }}" class="btn btn-primary goToClass">
 					    	View Classroom
 					    </a>
 					  </div>

@@ -29,7 +29,7 @@
           <td>{{ $ClassroomInfo->course_code }}</td>
           <td>{{ $ClassroomInfo->classroom_code }}</td>
           <td>
-            <a href="view_classroom/{{ $ClassroomInfo->id }}">
+            <a href="post_to_classroom/{{ $ClassroomInfo->id }}">
                 <button class="btn btn-primary">View</button>
             </a>
             <a href="delete_classroom/{{ $ClassroomInfo->id }}" onclick="return confirm('Are you sure you want to delete this Classroom?');">

@@ -124,9 +124,16 @@ class ClassroomController extends Controller
     }
 
 
-    public function classroom_details($id) {
+    public function postToClassroom($id) {
+        $getClassroomInfo= Classroom::findorFail($id);
+        return view('admins.postClassroom',compact('getClassroomInfo'));
+    }
+
+
+    public function classroom_details($classroom_id) {
 
         $getUserId= Sentinel::getUser()->id;
+        $getClassroomInfo= Classroom::findorFail($classroom_id);
 
         $getUserInfos= DB::table('users')
             ->select('users.photo')
@@ -135,7 +142,8 @@ class ClassroomController extends Controller
 
         // return redirect()->back();
 
-        return view('users.classroom_details')->with('getUserInfos',$getUserInfos);
+        return view('users.classroom_details',compact('getClassroomInfo'))
+            ->with('getUserInfos',$getUserInfos);
     }
 
 

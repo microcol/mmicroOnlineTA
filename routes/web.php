@@ -35,6 +35,8 @@ Route::get('/classroom_panel','ClassroomController@index');
 Route::post('/create-department','ClassroomController@createDepartment');
 Route::get('/generate-classroomCode','ClassroomController@createClassroomCode');
 Route::get('/view_classroom','ClassroomController@viewClassrooms');
+Route::get('/post_to_classroom/{id}','ClassroomController@postToClassroom');
+Route::post('/post_data_to_classroom','ClassroomPostsController@postDataToClassroom');
 Route::get('/delete_classroom/{id}','ClassroomController@deleteClassrooms');
 Route::get('/notice','NoticeController@index');
 Route::post('/post-notice','NoticeController@postNotice');
@@ -52,7 +54,7 @@ Route::get('/profile','UserController@profile');
 Route::get('/single_blog_post/{id}',['as'=>'single_blog_post', 'uses' => 'PostController@single_blog_post']);
 Route::get('/classroom','ClassroomController@userClassroomPanel');
 Route::post('/enroll_course','ClassroomController@enrollCourse');
-Route::get('/classroom_details/{id}','ClassroomController@classroom_details');
+Route::get('/classroom_details/{classroom_id}','ClassroomController@classroom_details');
 Route::get('/library','LibraryController@viewBookToUsers');
 
 //Route::post('/register','RegisterController@registration');

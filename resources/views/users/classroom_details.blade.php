@@ -10,9 +10,11 @@
 				<div class="classroomArea sidebar">
 					<ul>
 						<li>
-							<div class="sidebarNav">
-								<a href="{{ '/classroom' }}">
-									<h3>All Classes</h3>
+							<div class="sidebarNav" style="background-color: #ff7361; min-height:70px;">
+								
+									<h3 style="text-transform:uppercase; color:#2f3239; font-weight:bold; margin-bottom:15px;">
+										{{ $getClassroomInfo->course_title }}
+									
 								</a>
 							</div>
 						</li>
@@ -32,9 +34,11 @@
 					<div class="media">
 					  <img class="mr-3" src="{{ asset('uploads/images').'/'.$getUserInfos[0]->photo }}">
 					  <div class="media-body">
-					  	<form>
-					  		<textarea class="postClass"></textarea>
-					  		<input type="file" name="" class="postClassBtn">
+					  	<form action="/post_data_to_classroom" method="POST" enctype="multipart/form-data">
+					  		<textarea class="postClass" name="post"></textarea>
+					  		<input type="file" name="file" class="postClassBtn">
+								<input type="hidden" name="user_id" value="{{ Sentinel::getUser()->id }}">
+                <input type="hidden" name="classroom_id" value="{{ $getClassroomInfo->id }}">
 					  		<input type="submit" name="" value="Post" class="postClassBtn" placeholder="Post here...">
 					  	</form>
 					  </div>
@@ -47,17 +51,7 @@
 
 					    <div class="media mt-3">
 					      <a class="pr-3" href="#">
-					        <img src="{{ asset('frontend/images/male.png') }}" alt="Generic placeholder image">
-					      </a>
-					      <div class="media-body">
-					        <h5 class="mt-0">Media heading</h5>
-						    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.			      
-						  </div>
-					    </div>
-
-					    <div class="media mt-3">
-					      <a class="pr-3" href="#">
-					        <img src="{{ asset('frontend/images/female.png') }}" alt="Generic placeholder image">
+					        <img src="{{ asset('uploads/images').'/'.$getUserInfos[0]->photo }}">
 					      </a>
 					      <div class="media-body">
 					        <form>
