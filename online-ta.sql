@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2019 at 10:55 PM
+-- Generation Time: Mar 17, 2019 at 08:04 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -73,6 +73,33 @@ INSERT INTO `activations` (`id`, `user_id`, `code`, `completed`, `completed_at`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `classroomcomments`
+--
+
+CREATE TABLE `classroomcomments` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `classroompost_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `comment` varchar(1000) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `classroomcomments`
+--
+
+INSERT INTO `classroomcomments` (`id`, `user_id`, `classroompost_id`, `comment`, `created_at`, `updated_at`) VALUES
+(1, '13', '7', 'ok sir', '2019-03-17 09:09:36', '2019-03-17 09:09:36'),
+(2, '20', '4', 'thanks sir', '2019-03-17 09:09:55', '2019-03-17 09:09:55'),
+(3, '13', '6', 'not sure', '2019-03-17 09:35:36', '2019-03-17 09:35:36'),
+(6, '13', '8', 'done', '2019-03-17 12:39:37', '2019-03-17 12:39:37'),
+(7, '20', '4', 'ok sir', '2019-03-17 12:46:06', '2019-03-17 12:46:06'),
+(10, '20', '7', 'How many members can join in a single group?', '2019-03-17 12:56:56', '2019-03-17 12:56:56');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `classroomposts`
 --
 
@@ -92,7 +119,10 @@ CREATE TABLE `classroomposts` (
 
 INSERT INTO `classroomposts` (`id`, `user_id`, `classroom_id`, `post`, `file`, `created_at`, `updated_at`) VALUES
 (1, '12', '8', 'quiz on next week', '1552770287.pdf', '2019-03-16 15:04:47', '2019-03-16 15:04:47'),
-(4, '12', '9', 'No classes will be held today', '1552770884.pdf', '2019-03-16 15:14:44', '2019-03-16 15:14:44');
+(4, '12', '9', 'No classes will be held today', '1552770884.pdf', '2019-03-16 15:14:44', '2019-03-16 15:14:44'),
+(6, '20', '8', 'Any quiz on Monday?', '1552828619.pdf', '2019-03-17 07:16:59', '2019-03-17 07:16:59'),
+(7, '12', '8', 'Presentation group must be submitted by next Wednesday.', '1552829163.pdf', '2019-03-17 07:26:03', '2019-03-17 07:26:03'),
+(8, '13', '7', 'Assignment on Wednesday', '1552837156.pdf', '2019-03-17 09:39:16', '2019-03-17 09:39:16');
 
 -- --------------------------------------------------------
 
@@ -194,7 +224,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (7, '2019_03_06_184818_create_posts_table', 5),
 (8, '2019_03_07_143521_create_comments_table', 6),
 (9, '2019_03_13_082314_create_registereds_table', 7),
-(10, '2019_03_16_201805_create_classroomposts_table', 8);
+(10, '2019_03_16_201805_create_classroomposts_table', 8),
+(11, '2019_03_17_135547_create_classroomcomments_table', 9);
 
 -- --------------------------------------------------------
 
@@ -312,7 +343,10 @@ INSERT INTO `persistences` (`id`, `user_id`, `code`, `created_at`, `updated_at`)
 (254, 20, 'XFoFLpFjAtkA6bbR1b6SICTXn5VPRxcz', '2019-03-15 04:31:53', '2019-03-15 04:31:53'),
 (256, 20, 'soLYUNDCJgGVKyJhDhrt8lOARU8NraLm', '2019-03-15 09:01:53', '2019-03-15 09:01:53'),
 (268, 20, 'Quz8r82c63lUnIOv3z6UvrXJTE2ukmzu', '2019-03-16 15:15:19', '2019-03-16 15:15:19'),
-(269, 13, 'ip2y6upbvLCBBW1av2Niah1AZ5hYTw56', '2019-03-16 15:48:30', '2019-03-16 15:48:30');
+(269, 13, 'ip2y6upbvLCBBW1av2Niah1AZ5hYTw56', '2019-03-16 15:48:30', '2019-03-16 15:48:30'),
+(275, 13, 'b7s5EbIGbh5sCf7nbrLfsD7nySUfEeQf', '2019-03-17 09:08:00', '2019-03-17 09:08:00'),
+(276, 20, 'Z3612JKp5LWps75sveN0k4UcRB8F8nuo', '2019-03-17 09:08:03', '2019-03-17 09:08:03'),
+(277, 13, 'rJPmHv7kV5Yk9P4a67zyHwHADA0yfLBs', '2019-03-17 11:55:59', '2019-03-17 11:55:59');
 
 -- --------------------------------------------------------
 
@@ -661,10 +695,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user_type`, `varsity_id`, `first_name`, `last_name`, `full_name`, `email`, `department`, `phone`, `password`, `photo`, `permissions`, `last_login`, `created_at`, `updated_at`) VALUES
-(12, 'employee', '1123554', 'teacher1', 'one', 'teacher one', 'teacher@onlineta.com', 'bba', 6576, '$2y$10$1nsiUzvpHH5wafk7//eeoOvwm3n9S8FD2rHsMKn8rRw/.kXNH1hRi', '1551364876.jpg', NULL, '2019-03-16 13:51:39', '2019-02-28 08:41:17', '2019-03-16 13:51:39'),
-(13, 'student', '151-15-335', 'Md Mohaiminul', 'Islam', 'Md Mohaiminul Islam', 'rabidislam@hotmail.com', 'CSE', 1624585608, '$2y$10$KJiCGKUdyAAPhcNAhJxeLuyvY1Ul2IWh.oooU2GZFZc5RihHO21fS', '1551366085.jpg', NULL, '2019-03-16 15:48:30', '2019-02-28 09:01:25', '2019-03-16 15:48:30'),
-(14, 'superadmin', '121243422', 'Super', 'Admin', 'Super Admin', 'superadmin@onlineta.com', 'ALL', 9873546723, '$2y$10$eIw.SbAAekC4kerloTbM1e2cO8uCM1A44T4WB3t0hgjn86jQ53C02', '1551691288.png', NULL, '2019-03-15 09:03:53', '2019-03-04 03:21:28', '2019-03-15 09:03:53'),
-(20, 'student', '151-15-313', 'Tohfae Masrura', 'Sumaia', 'Tohfae Masrura Sumaia', 'tohfa@onlineta.com', 'cse', 1639219939, '$2y$10$o/fC4rDEYhdFVM9Kbpedteqh6GidHvWzuAst7w5qq57Hf3pKlO.wi', '1551813936.jpg', NULL, '2019-03-16 15:15:19', '2019-03-05 13:25:37', '2019-03-16 15:15:19'),
+(12, 'employee', '1123554', 'teacher1', 'one', 'teacher one', 'teacher@onlineta.com', 'bba', 6576, '$2y$10$1nsiUzvpHH5wafk7//eeoOvwm3n9S8FD2rHsMKn8rRw/.kXNH1hRi', '1551364876.jpg', NULL, '2019-03-17 07:23:52', '2019-02-28 08:41:17', '2019-03-17 07:23:52'),
+(13, 'student', '151-15-335', 'Md Mohaiminul', 'Islam', 'Md Mohaiminul Islam', 'rabidislam@hotmail.com', 'CSE', 1624585608, '$2y$10$KJiCGKUdyAAPhcNAhJxeLuyvY1Ul2IWh.oooU2GZFZc5RihHO21fS', '1551366085.jpg', NULL, '2019-03-17 11:55:59', '2019-02-28 09:01:25', '2019-03-17 11:55:59'),
+(14, 'superadmin', '121243422', 'Super', 'Admin', 'Super Admin', 'superadmin@onlineta.com', 'ALL', 9873546723, '$2y$10$eIw.SbAAekC4kerloTbM1e2cO8uCM1A44T4WB3t0hgjn86jQ53C02', '1551691288.png', NULL, '2019-03-17 07:22:44', '2019-03-04 03:21:28', '2019-03-17 07:22:44'),
+(20, 'student', '151-15-313', 'Tohfae Masrura', 'Sumaia', 'Tohfae Masrura Sumaia', 'tohfa@onlineta.com', 'cse', 1639219939, '$2y$10$o/fC4rDEYhdFVM9Kbpedteqh6GidHvWzuAst7w5qq57Hf3pKlO.wi', '1551813936.jpg', NULL, '2019-03-17 09:08:03', '2019-03-05 13:25:37', '2019-03-17 09:08:03'),
 (22, 'student', '151-15-327', 'Saiful', 'Islam', 'Saiful Islam Rana', 'rana@onlineta.com', '151-15-327', 9124876545, '$2y$10$z5bd85pp32N37eIqQaevfeTjd1fN/i1UgOnZuREwQJgMarj9iAojy', '1552246270.jpg', NULL, '2019-03-15 09:51:29', '2019-03-10 13:31:10', '2019-03-15 09:51:29');
 
 --
@@ -675,6 +709,12 @@ INSERT INTO `users` (`id`, `user_type`, `varsity_id`, `first_name`, `last_name`,
 -- Indexes for table `activations`
 --
 ALTER TABLE `activations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `classroomcomments`
+--
+ALTER TABLE `classroomcomments`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -776,10 +816,16 @@ ALTER TABLE `activations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
+-- AUTO_INCREMENT for table `classroomcomments`
+--
+ALTER TABLE `classroomcomments`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
 -- AUTO_INCREMENT for table `classroomposts`
 --
 ALTER TABLE `classroomposts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `classrooms`
@@ -803,7 +849,7 @@ ALTER TABLE `libraries`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `notices`
@@ -815,7 +861,7 @@ ALTER TABLE `notices`
 -- AUTO_INCREMENT for table `persistences`
 --
 ALTER TABLE `persistences`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=270;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=278;
 
 --
 -- AUTO_INCREMENT for table `posts`

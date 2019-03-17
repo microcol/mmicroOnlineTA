@@ -12,6 +12,10 @@ use App\Registereds;
 
 use App\ClassroomPosts;
 
+use App\ClassroomComments;
+
+use DB;
+
 
 class ClassroomPostsController extends Controller
 {
@@ -41,6 +45,23 @@ class ClassroomPostsController extends Controller
 
         }
 
+
+    }
+
+
+    public function classroomComment(Request $request) {
+
+        ClassroomComments::create($request->all());
+
+        $getClassroomsComment= DB::table('classroomcomments')
+            ->join('classroomposts','classroomcomments.classroompost_id','classroomposts.id')
+            ->select('classroomcomments.*','classroomposts.id')
+            ->where('classroomcomments.classroompost_id','classroomposts.id')
+            ->get();
+
+            
+
+        return redirect()->back()->with('getClassroomsComment',$getClassroomsComment);
 
     }
 

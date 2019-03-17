@@ -142,16 +142,24 @@ class ClassroomController extends Controller
             ->where('id',$getUserId)
             ->get();
             
-            $classroomAllPosts= DB::table('classroomposts')
-                ->join('users','classroomposts.user_id','users.id')
-                ->select('classroomposts.*','users.full_name','users.photo')
-                ->where('classroom_id',$getClassroomInfo->id)
-                ->orderBy('id','DESC')
-                ->get();
+        $classroomAllPosts= DB::table('classroomposts')
+            ->join('users','classroomposts.user_id','users.id')
+            ->select('classroomposts.*','users.full_name','users.photo')
+            ->where('classroom_id',$getClassroomInfo->id)
+            ->orderBy('id','DESC')
+            ->get();
+
+            $getClassroomsComment= DB::table('classroomcomments')
+            ->join('classroomposts','classroomcomments.classroompost_id','classroomposts.id')
+            ->select('classroomcomments.*','classroomposts.id')
+            ->where('classroomcomments.classroompost_id','classroomposts.id')
+            ->get();
+
 
         return view('users.classroom_details',compact('getClassroomInfo'))
             ->with('getUserInfos',$getUserInfos)
-            ->with('classroomAllPosts',$classroomAllPosts);
+            ->with('classroomAllPosts',$classroomAllPosts)
+            ->with('getClassroomsComment',$getClassroomsComment);
     }
 
 

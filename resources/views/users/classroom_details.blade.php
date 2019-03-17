@@ -48,7 +48,7 @@
 				@foreach($classroomAllPosts as $individualPost)	
 
 					<div class="media" style="border-bottom:none;">
-					  <img class="mr-3" src="{{ asset('frontend/images/female.png') }}" alt="Generic placeholder image">
+					  <img class="mr-3" src="{{ asset('uploads/images').'/'.$individualPost->photo }}">
 					  <div class="media-body">
 					    <h5 class="mt-0" style="text-transform:uppercase;">{{ $individualPost->full_name }}</h5>
 								<p style="font-size:13px;">
@@ -59,14 +59,38 @@
 								</p>
 					    </div>
 					  </div>
+						<hr>
+
+					@foreach($getClassroomsComment as $getComment)
+
 						<div class="media" style="margin-top:-15px; border-top:none;">
+					      <a class="pr-3" href="#">
+					        <img src="">
+					      </a>
+					      <div class="media-body">
+									<h5 class="mt-0" style="text-transform:uppercase;">name</h5>
+									<p style="font-size:13px;">
+										time ago
+									</p>
+									<p style="margin: 15px 0 15px 0;">
+										{{ $getComment->post }}
+									</p>  				      
+					  		</div>
+					</div>
+
+				@endforeach	
+
+					<div class="media" style="margin-top:-15px; border-top:none;">
 					      <a class="pr-3" href="#">
 					        <img src="{{ asset('uploads/images').'/'.$getUserInfos[0]->photo }}">
 					      </a>
 					      <div class="media-body">
-					        <form>
-					  		<textarea class="postClass"></textarea>
-					  		<input type="submit" name="" value="Comment" class="postClassBtn" placeholder="Post here...">
+					      <form action="{{ route('post_classroom_comment') }}" method="post">
+								@csrf
+					  		<textarea class="postClass" name="comment"></textarea>
+								<input type="hidden" name="user_id" value="{{ Sentinel::getUser()->id }}">
+								<input type="hidden" name="classroompost_id" value="{{ $individualPost->id }}">
+					  		<input type="submit" value="Reply" class="postClassBtn">
 					  	</form>					      
 					  </div>
 					</div>
