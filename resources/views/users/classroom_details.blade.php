@@ -35,6 +35,7 @@
 					  <img class="mr-3" src="{{ asset('uploads/images').'/'.$getUserInfos[0]->photo }}">
 					  <div class="media-body">
 					  	<form action="/post_data_to_classroom" method="POST" enctype="multipart/form-data">
+							@csrf
 					  		<textarea class="postClass" name="post"></textarea>
 					  		<input type="file" name="file" class="postClassBtn">
 								<input type="hidden" name="user_id" value="{{ Sentinel::getUser()->id }}">
@@ -43,13 +44,22 @@
 					  	</form>
 					  </div>
 					</div>
-					<div class="media">
+					
+				@foreach($classroomAllPosts as $individualPost)	
+
+					<div class="media" style="border-bottom:none;">
 					  <img class="mr-3" src="{{ asset('frontend/images/female.png') }}" alt="Generic placeholder image">
 					  <div class="media-body">
-					    <h5 class="mt-0">Media heading</h5>
-					    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-
-					    <div class="media mt-3">
+					    <h5 class="mt-0" style="text-transform:uppercase;">{{ $individualPost->full_name }}</h5>
+								<p style="font-size:13px;">
+									{{ Carbon\Carbon::parse($individualPost->created_at)->diffForHumans() }}
+								</p>
+								<p style="margin: 15px 0 15px 0;">
+									{{ $individualPost->post }}
+								</p>
+					    </div>
+					  </div>
+						<div class="media" style="margin-top:-15px; border-top:none;">
 					      <a class="pr-3" href="#">
 					        <img src="{{ asset('uploads/images').'/'.$getUserInfos[0]->photo }}">
 					      </a>
@@ -59,9 +69,10 @@
 					  		<input type="submit" name="" value="Comment" class="postClassBtn" placeholder="Post here...">
 					  	</form>					      
 					  </div>
-					    </div>
-					  </div>
 					</div>
+
+				@endforeach
+
 				</div>
 			</div>
 			

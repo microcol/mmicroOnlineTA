@@ -8,6 +8,8 @@ use App\Classroom;
 
 use App\Registereds;
 
+use App\ClassroomPosts;
+
 use DB;
 
 use Illuminate\Support\Facades\Input;
@@ -139,11 +141,17 @@ class ClassroomController extends Controller
             ->select('users.photo')
             ->where('id',$getUserId)
             ->get();
-
-        // return redirect()->back();
+            
+            $classroomAllPosts= DB::table('classroomposts')
+                ->join('users','classroomposts.user_id','users.id')
+                ->select('classroomposts.*','users.full_name','users.photo')
+                ->where('classroom_id',$getClassroomInfo->id)
+                ->orderBy('id','DESC')
+                ->get();
 
         return view('users.classroom_details',compact('getClassroomInfo'))
-            ->with('getUserInfos',$getUserInfos);
+            ->with('getUserInfos',$getUserInfos)
+            ->with('classroomAllPosts',$classroomAllPosts);
     }
 
 
