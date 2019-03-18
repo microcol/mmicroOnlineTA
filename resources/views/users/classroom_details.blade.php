@@ -57,6 +57,9 @@
 								<p style="margin: 15px 0 15px 0;">
 									{{ $individualPost->post }}
 								</p>
+								<a href="{{ asset('uploads/library').'/'.$individualPost->file }}" target="_blank">
+									{{ $individualPost->file }}
+								</a>
 					    </div>
 					  </div>
 						<hr>
