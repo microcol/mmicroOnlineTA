@@ -36,6 +36,7 @@ Route::post('/create-department','ClassroomController@createDepartment');
 Route::get('/generate-classroomCode','ClassroomController@createClassroomCode');
 Route::get('/view_classroom','ClassroomController@viewClassrooms');
 Route::get('/post_to_classroom/{id}','ClassroomController@postToClassroom');
+Route::get('/view_classwise_students/{id}','ClassroomController@viewClasswiseStudents');
 Route::post('/post_data_to_classroom','ClassroomPostsController@postDataToClassroom');
 Route::get('/delete_classroom/{id}','ClassroomController@deleteClassrooms');
 Route::get('/notice','NoticeController@index');

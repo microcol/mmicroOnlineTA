@@ -163,4 +163,17 @@ class ClassroomController extends Controller
     }
 
 
+    public function viewClasswiseStudents($id) {
+        
+        $getClasswiseStudents= DB::table('classrooms')
+        ->join('registereds','classrooms.id','registereds.classroom_id')
+        ->select('classrooms.*','registereds.full_name','registereds.classroom_id')
+        ->where('registereds.classroom_id',$id)
+        ->get();
+        
+        return view('admins.getclasswiseStudents')->with('getClasswiseStudents',$getClasswiseStudents);
+
+    }
+
+
 }

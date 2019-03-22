@@ -23,7 +23,7 @@ class LoginController extends Controller
         
         Sentinel::disableCheckpoints();
         
-        if($userType=='superadmin' || $userType=='employee') {
+        if($userType=='superadmin' || $userType=='admin' || $userType=='employee') {
             return redirect('/dashboard');
         }
         else if($userType=='student') {
