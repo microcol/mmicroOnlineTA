@@ -167,11 +167,20 @@ class ClassroomController extends Controller
         
         $getClasswiseStudents= DB::table('classrooms')
         ->join('registereds','classrooms.id','registereds.classroom_id')
-        ->select('classrooms.*','registereds.full_name','registereds.classroom_id')
+        ->join('users','registereds.student_id','users.id')
+        ->select('classrooms.*','registereds.full_name','registereds.student_id','registereds.classroom_id','users.varsity_id','users.email','users.photo')
         ->where('registereds.classroom_id',$id)
         ->get();
-        
+
         return view('admins.getclasswiseStudents')->with('getClasswiseStudents',$getClasswiseStudents);
+
+    }
+
+
+    public function deleteEnrolledStudent($student_id) {
+
+        dd($student_id);
+        
 
     }
 

@@ -37,6 +37,8 @@ Route::get('/generate-classroomCode','ClassroomController@createClassroomCode');
 Route::get('/view_classroom','ClassroomController@viewClassrooms');
 Route::get('/post_to_classroom/{id}','ClassroomController@postToClassroom');
 Route::get('/view_classwise_students/{id}','ClassroomController@viewClasswiseStudents');
+Route::get('/delete_enrolled_student/{student_id}','ClassroomController@deleteEnrolledStudent');
+// Route::get('/delete_enrolled_student/{student_id}', ['as' => 'delete_enrolled_student', 'uses' => 'ClassroomController@deleteEnrolledStudent']);
 Route::post('/post_data_to_classroom','ClassroomPostsController@postDataToClassroom');
 Route::get('/delete_classroom/{id}','ClassroomController@deleteClassrooms');
 Route::get('/notice','NoticeController@index');
