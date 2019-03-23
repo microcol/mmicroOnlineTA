@@ -10,6 +10,8 @@ use App\Registereds;
 
 use App\ClassroomPosts;
 
+use App\ClassroomComments;
+
 use DB;
 
 use Illuminate\Support\Facades\Input;
@@ -148,14 +150,24 @@ class ClassroomController extends Controller
             ->where('classroom_id',$getClassroomInfo->id)
             ->orderBy('id','DESC')
             ->get();
+        // $getId= ClassroomPosts::findorFail($classroom_id);
+        // dd($getId);
+        // $getClassroomsComment= DB::table('classroomcomments')
+        //     ->orderBy('created_at','DESC')
+        //     ->get();
 
-            $getClassroomsComment= DB::table('classroomcomments')
+
+        $getClassroomsComment= DB::table('classroomcomments')
             ->join('classroomposts','classroomcomments.classroompost_id','classroomposts.id')
-            ->select('classroomcomments.*','classroomposts.id')
-            ->where('classroomcomments.classroompost_id','classroomposts.id')
+            ->join('users','classroomcomments.user_id','users.id')
+            ->select('classroomcomments.classroompost_id','classroomcomments.comment','classroomcomments.created_at','users.full_name','users.photo')
+            // ->where('classroomposts.id',$getId)
             ->get();
 
-
+        // dd($getClassroomsComment);  
+        
+        
+        
         return view('users.classroom_details',compact('getClassroomInfo'))
             ->with('getUserInfos',$getUserInfos)
             ->with('classroomAllPosts',$classroomAllPosts)
@@ -171,6 +183,8 @@ class ClassroomController extends Controller
         ->select('classrooms.*','registereds.full_name','registereds.student_id','registereds.classroom_id','users.varsity_id','users.email','users.photo')
         ->where('registereds.classroom_id',$id)
         ->get();
+        
+
 
         return view('admins.getclasswiseStudents')->with('getClasswiseStudents',$getClasswiseStudents);
 

@@ -47,7 +47,8 @@
 					
 				@foreach($classroomAllPosts as $individualPost)	
 
-					<div class="media" style="border-bottom:none;">
+
+					<div class="media" style=" border:2px solid #ff7361; border-bottom:none;">
 					  <img class="mr-3" src="{{ asset('uploads/images').'/'.$individualPost->photo }}">
 					  <div class="media-body">
 					    <h5 class="mt-0" style="text-transform:uppercase;">{{ $individualPost->full_name }}</h5>
@@ -64,41 +65,53 @@
 					  </div>
 						<hr>
 
-					@foreach($getClassroomsComment as $getComment)
+
+
+						@foreach($getClassroomsComment as $comment)
+
+
+							@if ($comment->classroompost_id == $individualPost->id)
+
+
+							<div class="media" style="margin-top:-15px; border-top:none;">
+									<a class="pr-3" href="#">
+										<img src="{{ asset('uploads/images'.'/'.$comment->photo) }}">
+									</a>
+									<div class="media-body">
+										<h5 class="mt-0" style="text-transform:uppercase;">{{ $comment->full_name }}</h5>
+										<p style="font-size:13px;">
+										{{ Carbon\Carbon::parse($comment->created_at)->diffForHumans() }}
+										</p>
+										<p style="margin: 15px 0 15px 0;">
+											{{ $comment->comment }}
+										</p>  				      
+									</div>
+							</div>
+							@endif
+
+						@endforeach
 
 						<div class="media" style="margin-top:-15px; border-top:none;">
-					      <a class="pr-3" href="#">
-					        <img src="">
-					      </a>
-					      <div class="media-body">
-									<h5 class="mt-0" style="text-transform:uppercase;">name</h5>
-									<p style="font-size:13px;">
-										time ago
-									</p>
-									<p style="margin: 15px 0 15px 0;">
-										{{ $getComment->post }}
-									</p>  				      
-					  		</div>
-					</div>
+									<a class="pr-3" href="#">
+										<img src="{{ asset('uploads/images'.'/'.$getUserInfos[0]->photo) }}">
+									</a>
+									<div class="media-body">
+									<form action="{{ route('post_classroom_comment') }}" method="post">
+									@csrf
+									<textarea class="postClass" name="comment"></textarea>
+									<input type="hidden" name="user_id" value="">
+									<input type="hidden" name="classroompost_id" value="">
+									<input type="submit" value="Reply" class="postClassBtn">
+								</form>					      
+							</div>
+						</div>
 
-				@endforeach	
 
-					<div class="media" style="margin-top:-15px; border-top:none;">
-					      <a class="pr-3" href="#">
-					        <img src="{{ asset('uploads/images').'/'.$getUserInfos[0]->photo }}">
-					      </a>
-					      <div class="media-body">
-					      <form action="{{ route('post_classroom_comment') }}" method="post">
-								@csrf
-					  		<textarea class="postClass" name="comment"></textarea>
-								<input type="hidden" name="user_id" value="{{ Sentinel::getUser()->id }}">
-								<input type="hidden" name="classroompost_id" value="{{ $individualPost->id }}">
-					  		<input type="submit" value="Reply" class="postClassBtn">
-					  	</form>					      
-					  </div>
-					</div>
+@endforeach
 
-				@endforeach
+
+
+
 
 				</div>
 			</div>
