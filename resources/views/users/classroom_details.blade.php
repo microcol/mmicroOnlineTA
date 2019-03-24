@@ -99,8 +99,8 @@
 									<form action="{{ route('post_classroom_comment') }}" method="post">
 									@csrf
 									<textarea class="postClass" name="comment"></textarea>
-									<input type="hidden" name="user_id" value="">
-									<input type="hidden" name="classroompost_id" value="">
+									<input type="hidden" name="user_id" value="{{ Sentinel::getUser()->id }}">
+									<input type="hidden" name="classroompost_id" value="{{ $individualPost->id }}">
 									<input type="submit" value="Reply" class="postClassBtn">
 								</form>					      
 							</div>

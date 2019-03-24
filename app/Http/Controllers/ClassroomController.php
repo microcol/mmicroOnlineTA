@@ -101,7 +101,11 @@ class ClassroomController extends Controller
             ->where('id',$input['student_id'])
             ->get();
 
-        if(count($checkClassCode)>0) {
+        if($getClassCode == $checkClassCode[0] ) {
+            return ('You are already enrolled in this course');
+        }    
+
+        elseif(count($checkClassCode)>0) {
 
 
             DB::table('registereds')->insert(
@@ -161,7 +165,7 @@ class ClassroomController extends Controller
             ->join('classroomposts','classroomcomments.classroompost_id','classroomposts.id')
             ->join('users','classroomcomments.user_id','users.id')
             ->select('classroomcomments.classroompost_id','classroomcomments.comment','classroomcomments.created_at','users.full_name','users.photo')
-            // ->where('classroomposts.id',$getId)
+            ->orderBy('classroomcomments.id','ASC')
             ->get();
 
         // dd($getClassroomsComment);  

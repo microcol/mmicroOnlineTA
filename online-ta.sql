@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2019 at 08:04 PM
+-- Generation Time: Mar 24, 2019 at 02:43 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -68,7 +68,8 @@ INSERT INTO `activations` (`id`, `user_id`, `code`, `completed`, `completed_at`,
 (33, 16, 'iwQmyLQWzvv0p6Dp9Biy5QLmGtbiIpF8', 1, '2019-03-04 13:54:21', '2019-03-04 13:54:21', '2019-03-04 13:54:21'),
 (34, 20, 'lDCdaw8GdiyB7S67zJO4dtyRiJevoV47', 1, '2019-03-05 13:25:37', '2019-03-05 13:25:37', '2019-03-05 13:25:37'),
 (35, 21, '4PqO3R4enX5PxJ11UisCrZwWOLCpTJDS', 1, '2019-03-10 13:24:22', '2019-03-10 13:24:22', '2019-03-10 13:24:22'),
-(36, 22, 'efrIaHtcdvKpY89RSBmjEoMcjDy5htoh', 1, '2019-03-10 13:31:10', '2019-03-10 13:31:10', '2019-03-10 13:31:10');
+(36, 22, 'efrIaHtcdvKpY89RSBmjEoMcjDy5htoh', 1, '2019-03-10 13:31:10', '2019-03-10 13:31:10', '2019-03-10 13:31:10'),
+(37, 23, 'bnItpFsDNTxP3Q07VHL2paIlBflnHDLe', 1, '2019-03-22 05:44:29', '2019-03-22 05:44:29', '2019-03-22 05:44:29');
 
 -- --------------------------------------------------------
 
@@ -90,12 +91,13 @@ CREATE TABLE `classroomcomments` (
 --
 
 INSERT INTO `classroomcomments` (`id`, `user_id`, `classroompost_id`, `comment`, `created_at`, `updated_at`) VALUES
-(1, '13', '7', 'ok sir', '2019-03-17 09:09:36', '2019-03-17 09:09:36'),
-(2, '20', '4', 'thanks sir', '2019-03-17 09:09:55', '2019-03-17 09:09:55'),
-(3, '13', '6', 'not sure', '2019-03-17 09:35:36', '2019-03-17 09:35:36'),
-(6, '13', '8', 'done', '2019-03-17 12:39:37', '2019-03-17 12:39:37'),
-(7, '20', '4', 'ok sir', '2019-03-17 12:46:06', '2019-03-17 12:46:06'),
-(10, '20', '7', 'How many members can join in a single group?', '2019-03-17 12:56:56', '2019-03-17 12:56:56');
+(29, '20', '11', 'Thanks a lot Sir', '2019-03-23 06:26:13', '2019-03-23 06:26:13'),
+(32, '20', '8', 'I will try my best', '2019-03-23 06:32:20', '2019-03-23 06:32:20'),
+(33, '20', '10', 'When it will be?', '2019-03-23 06:35:32', '2019-03-23 06:35:32'),
+(37, '13', '9', 'what time Sir?', '2019-03-23 06:55:36', '2019-03-23 06:55:36'),
+(43, '13', '10', 'Tomorrow Sir?', '2019-03-24 07:07:38', '2019-03-24 07:07:38'),
+(44, '20', '9', '10.00 a.m', '2019-03-24 07:09:21', '2019-03-24 07:09:21'),
+(46, '22', '10', 'Anybody please give me syllabus?', '2019-03-24 07:15:42', '2019-03-24 07:15:42');
 
 -- --------------------------------------------------------
 
@@ -118,11 +120,9 @@ CREATE TABLE `classroomposts` (
 --
 
 INSERT INTO `classroomposts` (`id`, `user_id`, `classroom_id`, `post`, `file`, `created_at`, `updated_at`) VALUES
-(1, '12', '8', 'quiz on next week', '1552770287.pdf', '2019-03-16 15:04:47', '2019-03-16 15:04:47'),
-(4, '12', '9', 'No classes will be held today', '1552770884.pdf', '2019-03-16 15:14:44', '2019-03-16 15:14:44'),
-(6, '20', '8', 'Any quiz on Monday?', '1552828619.pdf', '2019-03-17 07:16:59', '2019-03-17 07:16:59'),
-(7, '12', '8', 'Presentation group must be submitted by next Wednesday.', '1552829163.pdf', '2019-03-17 07:26:03', '2019-03-17 07:26:03'),
-(8, '13', '7', 'Assignment on Wednesday', '1552837156.pdf', '2019-03-17 09:39:16', '2019-03-17 09:39:16');
+(9, '12', '8', '1st Quiz will be held tomorrow', '1553277947.pdf', '2019-03-22 12:05:47', '2019-03-22 12:05:47'),
+(10, '12', '8', 'New quiz date will be announced later', '1553280252.pdf', '2019-03-22 12:44:12', '2019-03-22 12:44:12'),
+(11, '14', '9', 'Today\'s class is cancelled', '1553342342.pdf', '2019-03-23 05:59:02', '2019-03-23 05:59:02');
 
 -- --------------------------------------------------------
 
@@ -346,7 +346,22 @@ INSERT INTO `persistences` (`id`, `user_id`, `code`, `created_at`, `updated_at`)
 (269, 13, 'ip2y6upbvLCBBW1av2Niah1AZ5hYTw56', '2019-03-16 15:48:30', '2019-03-16 15:48:30'),
 (275, 13, 'b7s5EbIGbh5sCf7nbrLfsD7nySUfEeQf', '2019-03-17 09:08:00', '2019-03-17 09:08:00'),
 (276, 20, 'Z3612JKp5LWps75sveN0k4UcRB8F8nuo', '2019-03-17 09:08:03', '2019-03-17 09:08:03'),
-(277, 13, 'rJPmHv7kV5Yk9P4a67zyHwHADA0yfLBs', '2019-03-17 11:55:59', '2019-03-17 11:55:59');
+(277, 13, 'rJPmHv7kV5Yk9P4a67zyHwHADA0yfLBs', '2019-03-17 11:55:59', '2019-03-17 11:55:59'),
+(281, 13, 'wsSgrtOFinVjyvWKKLw8q286ox62Mlgv', '2019-03-18 02:19:53', '2019-03-18 02:19:53'),
+(282, 14, 'nsoblp2N9PXDoyh0jObvtxOr6Xw6WOrO', '2019-03-18 02:20:06', '2019-03-18 02:20:06'),
+(283, 20, 'OfupxjgYCDYIfN3xNpUDx38siCKl1ZGx', '2019-03-22 05:40:10', '2019-03-22 05:40:10'),
+(286, 23, 'T3JBVUDFH3ovOuY2nvFmWgWcovrBJOSB', '2019-03-22 05:45:36', '2019-03-22 05:45:36'),
+(287, 23, '6wLzN0hIhSeRS5QpaLSB2s2iUINan0rO', '2019-03-22 05:46:00', '2019-03-22 05:46:00'),
+(296, 20, 'yRX0Gefxv0bOpIORiQnvQCc97uR5ptMe', '2019-03-22 10:35:38', '2019-03-22 10:35:38'),
+(297, 13, 'F6kJL1nG3039U71XmjYmX1UJw7eNUVpC', '2019-03-22 10:35:47', '2019-03-22 10:35:47'),
+(298, 12, 'JBYtvaCdGdk0NBxJY3qQeD4zRs1RGzMv', '2019-03-22 12:04:12', '2019-03-22 12:04:12'),
+(299, 13, 'wITd17vQK0gFJSmN0PCyefb8HmBOBjTE', '2019-03-23 05:49:51', '2019-03-23 05:49:51'),
+(301, 20, 'hnYY90trJQ3VIOTnNBfmJCVrgZcurgP5', '2019-03-23 05:50:18', '2019-03-23 05:50:18'),
+(302, 14, 'qYIADtnkaumu7EO7nHhPFqcJy7SWFOjQ', '2019-03-23 05:50:46', '2019-03-23 05:50:46'),
+(303, 13, 'gsWJmoOzBrDCTqXJ3h7OSBksCUw3fioc', '2019-03-23 10:09:10', '2019-03-23 10:09:10'),
+(304, 20, 'sv7kieawl56qi7vcyaw3BuknyEuDYnOT', '2019-03-23 10:35:44', '2019-03-23 10:35:44'),
+(305, 13, 'zwiDkn8RhWYvKilgNZIG8dHo18dHlFxF', '2019-03-24 06:49:54', '2019-03-24 06:49:54'),
+(307, 22, 'M6KvSrzL8zXgVGjqd82FV2rRrQ3BoDXD', '2019-03-24 07:13:54', '2019-03-24 07:13:54');
 
 -- --------------------------------------------------------
 
@@ -397,7 +412,9 @@ INSERT INTO `registereds` (`id`, `student_id`, `classroom_id`, `full_name`, `cou
 (4, '13', '8', 'Md Mohaiminul Islam', 'Problem Solving', 'cse432', '4ey41m', NULL, NULL),
 (5, '20', '8', 'Tohfae Masrura Sumaia', 'Problem Solving', 'cse432', '4ey41m', NULL, NULL),
 (6, '20', '9', 'Tohfae Masrura Sumaia', 'business management', 'bus323', 'rx45ca', NULL, NULL),
-(7, '22', '8', 'Saiful Islam Rana', 'Problem Solving', 'cse432', '4ey41m', NULL, NULL);
+(16, '22', '8', 'Saiful Islam Rana', 'Problem Solving', 'cse432', '4ey41m', NULL, NULL),
+(18, '22', '9', 'Saiful Islam Rana', 'business management', 'bus323', 'rx45ca', NULL, NULL),
+(19, '22', '7', 'Saiful Islam Rana', 'Advanced spoken english', 'eng123', '9138hs', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -695,11 +712,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user_type`, `varsity_id`, `first_name`, `last_name`, `full_name`, `email`, `department`, `phone`, `password`, `photo`, `permissions`, `last_login`, `created_at`, `updated_at`) VALUES
-(12, 'employee', '1123554', 'teacher1', 'one', 'teacher one', 'teacher@onlineta.com', 'bba', 6576, '$2y$10$1nsiUzvpHH5wafk7//eeoOvwm3n9S8FD2rHsMKn8rRw/.kXNH1hRi', '1551364876.jpg', NULL, '2019-03-17 07:23:52', '2019-02-28 08:41:17', '2019-03-17 07:23:52'),
-(13, 'student', '151-15-335', 'Md Mohaiminul', 'Islam', 'Md Mohaiminul Islam', 'rabidislam@hotmail.com', 'CSE', 1624585608, '$2y$10$KJiCGKUdyAAPhcNAhJxeLuyvY1Ul2IWh.oooU2GZFZc5RihHO21fS', '1551366085.jpg', NULL, '2019-03-17 11:55:59', '2019-02-28 09:01:25', '2019-03-17 11:55:59'),
-(14, 'superadmin', '121243422', 'Super', 'Admin', 'Super Admin', 'superadmin@onlineta.com', 'ALL', 9873546723, '$2y$10$eIw.SbAAekC4kerloTbM1e2cO8uCM1A44T4WB3t0hgjn86jQ53C02', '1551691288.png', NULL, '2019-03-17 07:22:44', '2019-03-04 03:21:28', '2019-03-17 07:22:44'),
-(20, 'student', '151-15-313', 'Tohfae Masrura', 'Sumaia', 'Tohfae Masrura Sumaia', 'tohfa@onlineta.com', 'cse', 1639219939, '$2y$10$o/fC4rDEYhdFVM9Kbpedteqh6GidHvWzuAst7w5qq57Hf3pKlO.wi', '1551813936.jpg', NULL, '2019-03-17 09:08:03', '2019-03-05 13:25:37', '2019-03-17 09:08:03'),
-(22, 'student', '151-15-327', 'Saiful', 'Islam', 'Saiful Islam Rana', 'rana@onlineta.com', '151-15-327', 9124876545, '$2y$10$z5bd85pp32N37eIqQaevfeTjd1fN/i1UgOnZuREwQJgMarj9iAojy', '1552246270.jpg', NULL, '2019-03-15 09:51:29', '2019-03-10 13:31:10', '2019-03-15 09:51:29');
+(12, 'employee', '1123554', 'teacher1', 'one', 'teacher one', 'teacher@onlineta.com', 'bba', 6576, '$2y$10$1nsiUzvpHH5wafk7//eeoOvwm3n9S8FD2rHsMKn8rRw/.kXNH1hRi', '1551364876.jpg', NULL, '2019-03-22 12:04:12', '2019-02-28 08:41:17', '2019-03-22 12:04:12'),
+(13, 'student', '151-15-335', 'Md Mohaiminul', 'Islam', 'Md Mohaiminul Islam', 'rabidislam@hotmail.com', 'CSE', 1624585608, '$2y$10$KJiCGKUdyAAPhcNAhJxeLuyvY1Ul2IWh.oooU2GZFZc5RihHO21fS', '1551366085.jpg', NULL, '2019-03-24 06:49:54', '2019-02-28 09:01:25', '2019-03-24 06:49:54'),
+(14, 'superadmin', '121243422', 'Super', 'Admin', 'Super Admin', 'superadmin@onlineta.com', 'ALL', 9873546723, '$2y$10$eIw.SbAAekC4kerloTbM1e2cO8uCM1A44T4WB3t0hgjn86jQ53C02', '1551691288.png', NULL, '2019-03-23 05:50:46', '2019-03-04 03:21:28', '2019-03-23 05:50:46'),
+(20, 'student', '151-15-313', 'Tohfae Masrura', 'Sumaia', 'Tohfae Masrura Sumaia', 'tohfa@onlineta.com', 'cse', 1639219939, '$2y$10$o/fC4rDEYhdFVM9Kbpedteqh6GidHvWzuAst7w5qq57Hf3pKlO.wi', '1551813936.jpg', NULL, '2019-03-24 06:50:10', '2019-03-05 13:25:37', '2019-03-24 06:50:10'),
+(22, 'student', '151-15-327', 'Saiful', 'Islam', 'Saiful Islam Rana', 'rana@onlineta.com', '151-15-327', 9124876545, '$2y$10$z5bd85pp32N37eIqQaevfeTjd1fN/i1UgOnZuREwQJgMarj9iAojy', '1552246270.jpg', NULL, '2019-03-24 07:13:54', '2019-03-10 13:31:10', '2019-03-24 07:13:54'),
+(23, 'admin', '16398463', 'admin', 'General', 'General Admin', 'admin@onlineta.com', 'ALL', 1724869856, '$2y$10$HXawHiuAT3SzFpMGJFiZQ.OYO7ZqRRnp7BDTBsix2Uzd7XSyZjvvC', '1553255069.png', NULL, '2019-03-22 05:50:27', '2019-03-22 05:44:29', '2019-03-22 05:50:27');
 
 --
 -- Indexes for dumped tables
@@ -813,19 +831,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `activations`
 --
 ALTER TABLE `activations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `classroomcomments`
 --
 ALTER TABLE `classroomcomments`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `classroomposts`
 --
 ALTER TABLE `classroomposts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `classrooms`
@@ -861,7 +879,7 @@ ALTER TABLE `notices`
 -- AUTO_INCREMENT for table `persistences`
 --
 ALTER TABLE `persistences`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=278;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=308;
 
 --
 -- AUTO_INCREMENT for table `posts`
@@ -873,7 +891,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `registereds`
 --
 ALTER TABLE `registereds`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `reminders`
@@ -897,7 +915,7 @@ ALTER TABLE `throttle`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
