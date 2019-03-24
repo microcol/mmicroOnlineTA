@@ -85,8 +85,8 @@
 										<p style="margin: 15px 0 15px 0;">
 											{{ $comment->comment }}
 										</p>  	
-										@if(...)
-											<a href="delete_comment/" style="float:right; font-size:15px; margin-top:10px; color:#2f3239;">
+										@if(Sentinel::getUser()->id == $comment->user_id)
+											<a href="delete_classroom_comment/{{ $comment->id }}" style="float:right; font-size:15px; margin-top:10px; color:#2f3239;">
 												Delete Comment
 											</a>			      
 										@endif

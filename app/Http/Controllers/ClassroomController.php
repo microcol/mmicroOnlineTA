@@ -164,7 +164,7 @@ class ClassroomController extends Controller
         $getClassroomsComment= DB::table('classroomcomments')
             ->join('classroomposts','classroomcomments.classroompost_id','classroomposts.id')
             ->join('users','classroomcomments.user_id','users.id')
-            ->select('classroomcomments.classroompost_id','classroomcomments.comment','classroomcomments.created_at','users.full_name','users.photo')
+            ->select('classroomcomments.id','classroomcomments.user_id','classroomcomments.classroompost_id','classroomcomments.comment','classroomcomments.created_at','users.full_name','users.photo')
             ->orderBy('classroomcomments.id','ASC')
             ->get();
 
@@ -215,6 +215,18 @@ class ClassroomController extends Controller
             ->get();
 
         return redirect()->back()->with('displayRegisteredsClassroooms',$displayRegisteredsClassroooms);
+
+    }
+    
+    
+    public function deleteClassroomComment($id) {
+
+        $deleteClassroomsComment= ClassroomComments::findorFail($id);
+        $deleteClassroomsComment->delete();
+
+        
+
+        return redirect()->back();
 
     }
 
