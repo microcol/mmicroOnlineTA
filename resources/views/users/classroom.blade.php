@@ -49,6 +49,9 @@
 					    <a href="classroom_details/{{ $enrolledStudents->classroom_id }}" class="btn btn-primary goToClass">
 					    	View Classroom
 					    </a>
+						<a href="uneroll/{{ $enrolledStudents->id }}" style="float:right; font-size:15px; margin-top:10px; color:#2f3239;">
+							Uneroll
+						</a>
 					  </div>
 					</div>
 				</div>

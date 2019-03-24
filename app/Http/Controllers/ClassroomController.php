@@ -101,7 +101,7 @@ class ClassroomController extends Controller
             ->where('id',$input['student_id'])
             ->get();
 
-        if($getClassCode == $checkClassCode[0] ) {
+        if( $getClassCode == $checkClassCode ) {
             return ('You are already enrolled in this course');
         }    
 
@@ -201,6 +201,24 @@ class ClassroomController extends Controller
         
 
     }
+    
+    
+    public function uneroll_students($id) {
+
+        $unerollStudent= Registereds::findorFail($id);
+        $unerollStudent->delete();
+
+        $getCurrentStudentId= Sentinel::getUser()->id;
+
+        $displayRegisteredsClassroooms= DB::table('Registereds')
+            ->where('student_id',$getCurrentStudentId)
+            ->get();
+
+        return redirect()->back()->with('displayRegisteredsClassroooms',$displayRegisteredsClassroooms);
+
+    }
+
+
 
 
 }

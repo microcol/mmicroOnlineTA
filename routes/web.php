@@ -58,6 +58,7 @@ Route::get('/single_blog_post/{id}',['as'=>'single_blog_post', 'uses' => 'PostCo
 Route::get('/classroom','ClassroomController@userClassroomPanel');
 Route::post('/enroll_course','ClassroomController@enrollCourse');
 Route::get('/classroom_details/{classroom_id}','ClassroomController@classroom_details');
+Route::get('/uneroll/{id}','ClassroomController@uneroll_students');
 Route::post('/post_classroom_comment', ['as' => 'post_classroom_comment', 'uses' => 'ClassroomPostsController@classroomComment']);
 Route::get('/post_classroom_comment', ['as' => 'post_classroom_comment', 'uses' => 'ClassroomPostsController@classroomComment']);
 Route::get('/library','LibraryController@viewBookToUsers');

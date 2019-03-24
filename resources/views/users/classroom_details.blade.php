@@ -84,7 +84,12 @@
 										</p>
 										<p style="margin: 15px 0 15px 0;">
 											{{ $comment->comment }}
-										</p>  				      
+										</p>  	
+										@if(...)
+											<a href="delete_comment/" style="float:right; font-size:15px; margin-top:10px; color:#2f3239;">
+												Delete Comment
+											</a>			      
+										@endif
 									</div>
 							</div>
 							@endif
@@ -97,12 +102,12 @@
 									</a>
 									<div class="media-body">
 									<form action="{{ route('post_classroom_comment') }}" method="post">
-									@csrf
-									<textarea class="postClass" name="comment"></textarea>
-									<input type="hidden" name="user_id" value="{{ Sentinel::getUser()->id }}">
-									<input type="hidden" name="classroompost_id" value="{{ $individualPost->id }}">
-									<input type="submit" value="Reply" class="postClassBtn">
-								</form>					      
+										@csrf
+										<textarea class="postClass" name="comment"></textarea>
+										<input type="hidden" name="user_id" value="{{ Sentinel::getUser()->id }}">
+										<input type="hidden" name="classroompost_id" value="{{ $individualPost->id }}">
+										<input type="submit" value="Reply" class="postClassBtn">
+									</form>					      
 							</div>
 						</div>
 
