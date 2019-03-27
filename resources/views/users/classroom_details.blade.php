@@ -14,13 +14,12 @@
 								
 									<h3 style="text-transform:uppercase; color:#2f3239; font-weight:bold; margin-bottom:15px;">
 										{{ $getClassroomInfo->course_title }}
-									
 								</a>
 							</div>
 						</li>
 						<li>
 							<div class="sidebarNav">
-								<a href="#">
+								<a href="/view_classmates/{{ $getClassroomInfo->id }}">
 									<h3>View Classmates</h3>
 								</a>
 							</div>
