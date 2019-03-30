@@ -5,6 +5,11 @@
 
 <div class="container">
 
+
+    <h3 style="text-align: center; margin-top:20px; text-transform:uppercase;">
+        CLASSMATES OF {{ $getClasswiseStudents[0]->course_title }}
+    </h3>
+
     <ul class="list-group" style="margin:50px;">
 
 

@@ -21,18 +21,29 @@ class ClassroomPostsController extends Controller
 {
     public function postDataToClassroom(Request $request) {
 
-        request()->validate([
+
+        
+        $data= $request->all();
+        //dd($data);
+
+        try{
+
+        
+        $request->validate([
             'file' => "required|mimes:pdf|max:10000",
         ]);
 
+        $fileName = time().'.'.$request->file->getClientOriginalExtension();
         
-        $fileName = time().'.'.request()->file->getClientOriginalExtension();
+        $response = $request->file->move(public_path('uploads/library'), $fileName);
         
-        $response = request()->file->move(public_path('uploads/library'), $fileName);
-        
-        $data= $request->all();
-        
+         
         $data['file']= $fileName;
+        
+        }catch (\Exception $e) {
+
+        }finally{
+
         
         $uploadFile= ClassroomPosts::create($data);
         
@@ -45,7 +56,7 @@ class ClassroomPostsController extends Controller
 
         }
 
-
+   }
     }
 
 

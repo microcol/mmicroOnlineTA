@@ -117,7 +117,7 @@
 			  <div class="control-group">
 				<label class="control-label" for="focusedInput">Department Name</label>
 				<div class="controls">
-				  <input class="input-xlarge focused" id="edit_department" type="text" name="department" readonly required value="{{ $teacherInfo->department }}">
+				  <input class="input-xlarge focused" id="edit_department" type="text" name="department"  required value="{{ $teacherInfo->department }}">
 			    </div>
 			  </div>
 			   <div class="control-group">
@@ -129,10 +129,10 @@
 			  <div class="control-group">
 				<label class="control-label" for="focusedInput">Photo</label>
 				<div class="controls">
-				  <input class="input-xlarge focused" id="edit_image" type="file" name="image" required value="{{ $teacherInfo->image }}">
+				  <input class="input-xlarge focused" id="edit_image" type="file" name="image" value="{{ $teacherInfo->image }}">
 			   </div>
 			  </div>    
-        <input id="id" type="hidden" name="id">
+        <input id="id" type="hidden" name="id" value="{{ $teacherInfo->id }}">
 			  <input type="hidden" name="user_type" value="employee">
 			</fieldset>
       </div>
