@@ -78,7 +78,7 @@
             <!-- end: Notifications Dropdown -->
             
             <!-- end: Message Dropdown -->
-            <li>
+            <li style="margin-top: 9px;">
               @if(Sentinel::check())
                 {{ Sentinel::getUser()->full_name }}
               @endif 
@@ -87,8 +87,8 @@
             box-sizing: border-box;"></li>
             <!-- start: User Dropdown -->
             <li class="dropdown">
-              <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="halflings-icon white user"></i> 
+              <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"> 
+                <i class="halflings-icon white user"></i>
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
@@ -97,14 +97,11 @@
                 </li>
                 <li><a href="#">Profile</li>
                 <li>
-
-                  <form action="/logout" method="POST" id="logoutForm">
+                  <form style="display:none;" action="/logout" method="POST" id="logoutForm">
                     @csrf
-                    <a href="#" style="text-decoration: none;" onclick="document.getElementById('logoutForm').submit()">Logout</a>
                   </form>
-                  
+                  <a href="#" style="text-decoration: none; margin-top:-9px;" onclick="document.getElementById('logoutForm').submit()">Logout</a>
                 </li>
-                
 
                 
               </ul>
