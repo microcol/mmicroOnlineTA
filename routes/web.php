@@ -49,6 +49,7 @@ Route::get('/notice','NoticeController@index');
 Route::post('/post-notice','NoticeController@postNotice');
 Route::get('/view-blogs','PostController@viewBlogForAdmin');
 Route::get('/view-single-blog/{id}','PostController@viewSingleBlogForAdmin');
+Route::get('/classroom_details_admin/{classroom_id}','ClassroomController@classroom_details_admin');
 
 
 

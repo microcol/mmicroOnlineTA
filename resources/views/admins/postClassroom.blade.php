@@ -34,9 +34,13 @@
 			  </div>
 			</fieldset>
 		  </form>
-	
+		
 	</div>
 
+
+	<span>
+			To view details please login from UserPanel
+	</span>
 
 
 @endsection

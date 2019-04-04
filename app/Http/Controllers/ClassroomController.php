@@ -99,17 +99,21 @@ class ClassroomController extends Controller
     public function userClassroomPanel() {
 
         $getCurrentStudentId= Sentinel::getUser()->id;
+        $getUserType= Sentinel::getUser()->user_type;
 
         $displayRegisteredsClassroooms= DB::table('Registereds')
             ->where('student_id',$getCurrentStudentId)
             ->get();
 
-        return view('users.classroom')->with('displayRegisteredsClassroooms',$displayRegisteredsClassroooms);
+        return view('users.classroom')
+            ->with('displayRegisteredsClassroooms',$displayRegisteredsClassroooms)
+            ->with('getUserType',$getUserType);
 
     }
 
 
     public function enrollCourse(Request $request) {
+
 
         $getClassCode= $request->validate_classroom_code;
 
@@ -265,6 +269,7 @@ class ClassroomController extends Controller
         return redirect()->back();
 
     }
+
 
 
 

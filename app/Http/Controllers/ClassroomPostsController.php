@@ -46,6 +46,7 @@ class ClassroomPostsController extends Controller
 
         
         $uploadFile= ClassroomPosts::create($data);
+
         
     	if($uploadFile) {
             $notification=array(

@@ -44,10 +44,10 @@ class LoginController extends Controller
         $userType=Sentinel::getUser()->user_type;
 
         
-        if($userType=='student') {
+        if($userType=='student' || $userType=='superadmin' || $userType=='employee') {
             return redirect('/profile');
         }
-        else if($userType=='superadmin' || $userType=='employee') {
+        else if($userType=='admin') {
             //return redirect('/');
             
             return "You are not a Student";

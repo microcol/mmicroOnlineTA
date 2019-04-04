@@ -35,6 +35,8 @@
 				</div>
 			</div>
 
+			
+
 		@foreach($displayRegisteredsClassroooms as $enrolledStudents)
 
 			<div class="col-md-3">
