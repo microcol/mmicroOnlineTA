@@ -36,6 +36,28 @@ class ClassroomController extends Controller
 
         if($dept) {
             $notification=array(
+                'message'=> 'Department Added Successfully!',
+                'alert-type'=>'success'
+            );
+               return Redirect()->back()->with($notification);
+
+        }
+
+    }
+    
+    public function editDepartment($id) {
+        $dept= Classroom::findorFail($id);
+        $generateClassroomCode= substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 6);
+        return view('admins.create_classroom',compact('dept'))->with('generateClassroomCode',$generateClassroomCode);
+
+    }
+    
+    public function createClassroom(Request $request) {
+        $generateClassroomCode= substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 6);
+        $dept= Classroom::create($request->all());
+
+        if($dept) {
+            $notification=array(
                 'message'=> 'Course Created Successfully!',
                 'alert-type'=>'success'
             );

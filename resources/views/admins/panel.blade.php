@@ -126,8 +126,10 @@
 
           @if (Sentinel::check() && Sentinel::getUser()->user_type=="superadmin")
           
+            <li><a href="{{ URL::to('adminRegister') }}"><i class="icon-bar-chart"></i><span class="hidden-tablet">Add Admin</span></a></li> 
             <li><a href="{{ URL::to('employeeRegister') }}"><i class="icon-bar-chart"></i><span class="hidden-tablet">Add Teacher</span></a></li> 
             <li><a href="{{ URL::to('studentRegister') }}"><i class="icon-bar-chart"></i><span class="hidden-tablet">Add Student</span></a></li>
+            <li><a href="{{ URL::to('allAdmins') }}"><i class="icon-envelope"></i><span class="hidden-tablet">All Admins</span></a></li>
             <li><a href="{{ URL::to('allTeachers') }}"><i class="icon-envelope"></i><span class="hidden-tablet">All Teachers</span></a></li>
             <li><a href="{{ URL::to('allStudents') }}"><i class="icon-envelope"></i><span class="hidden-tablet">All Students</span></a></li>
             <li><a href="{{ URL::to('notice') }}"><i class="icon-envelope"></i><span class="hidden-tablet">Post Notices</span></a></li>
@@ -170,7 +172,7 @@
         </div>
       </noscript> -->
       
-<div class="formBox" style="min-height: 500px; width: 76%; margin: 0 auto; margin-bottom: 50px; margin-left: 252px;">
+<div class="formBox" style="min-height: 600px; width: 76%; margin: 0 auto; margin-bottom: 50px; margin-left: 252px;">
 
      @yield('content')
 

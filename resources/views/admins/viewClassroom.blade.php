@@ -23,6 +23,7 @@
 
         
     @foreach($viewClassrooms as $ClassroomInfo)
+      
         <tr>
           <td>{{ $ClassroomInfo->department }}</td>
           <td>{{ $ClassroomInfo->course_title }}</td>

@@ -23,8 +23,10 @@ Route::get('view-notice/','NoticeController@adminViewNotice');
 
 Route::group(['middleware' => 'admin'], function() {
 
+Route::get('/adminRegister','RegisterController@registerAdmin');
 Route::get('/employeeRegister','RegisterController@registerEmployee');
 Route::get('/studentRegister','RegisterController@registerStudent');
+Route::get('/allAdmins','RegisterController@allAdmins');
 Route::get('/allTeachers','RegisterController@allTeachers');
 Route::get('/allStudents','RegisterController@allStudents');
 Route::get('/deleteTeacher/{id}','RegisterController@deleteTeacher');
@@ -33,6 +35,8 @@ Route::post('/upload-book','LibraryController@uploadBook');
 Route::get('/view-book','LibraryController@viewBook');
 Route::get('/classroom_panel','ClassroomController@index');
 Route::post('/create-department','ClassroomController@createDepartment');
+Route::post('/create_classroom','ClassroomController@createClassroom');
+Route::get('/edit_dept/{id}','ClassroomController@editDepartment');
 Route::get('/generate-classroomCode','ClassroomController@createClassroomCode');
 Route::get('/view_classroom','ClassroomController@viewClassrooms');
 Route::get('/post_to_classroom/{id}','ClassroomController@postToClassroom');
