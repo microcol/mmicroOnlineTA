@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2019 at 02:43 PM
+-- Generation Time: Apr 05, 2019 at 03:20 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -69,7 +69,10 @@ INSERT INTO `activations` (`id`, `user_id`, `code`, `completed`, `completed_at`,
 (34, 20, 'lDCdaw8GdiyB7S67zJO4dtyRiJevoV47', 1, '2019-03-05 13:25:37', '2019-03-05 13:25:37', '2019-03-05 13:25:37'),
 (35, 21, '4PqO3R4enX5PxJ11UisCrZwWOLCpTJDS', 1, '2019-03-10 13:24:22', '2019-03-10 13:24:22', '2019-03-10 13:24:22'),
 (36, 22, 'efrIaHtcdvKpY89RSBmjEoMcjDy5htoh', 1, '2019-03-10 13:31:10', '2019-03-10 13:31:10', '2019-03-10 13:31:10'),
-(37, 23, 'bnItpFsDNTxP3Q07VHL2paIlBflnHDLe', 1, '2019-03-22 05:44:29', '2019-03-22 05:44:29', '2019-03-22 05:44:29');
+(37, 23, 'bnItpFsDNTxP3Q07VHL2paIlBflnHDLe', 1, '2019-03-22 05:44:29', '2019-03-22 05:44:29', '2019-03-22 05:44:29'),
+(38, 24, 'RAAdBvfKRP1rkMM0evcJomcJBKTBXRFJ', 1, '2019-03-30 07:35:41', '2019-03-30 07:35:41', '2019-03-30 07:35:41'),
+(39, 25, 'aUgf87OEgRPnIgWbbT9IapGkXFYiHWzb', 1, '2019-04-04 05:24:41', '2019-04-04 05:24:41', '2019-04-04 05:24:41'),
+(40, 26, 'AXhX5YruH0dY61iLTQ9J6oICosHhqNvT', 1, '2019-04-05 06:33:29', '2019-04-05 06:33:29', '2019-04-05 06:33:29');
 
 -- --------------------------------------------------------
 
@@ -86,19 +89,6 @@ CREATE TABLE `classroomcomments` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `classroomcomments`
---
-
-INSERT INTO `classroomcomments` (`id`, `user_id`, `classroompost_id`, `comment`, `created_at`, `updated_at`) VALUES
-(29, '20', '11', 'Thanks a lot Sir', '2019-03-23 06:26:13', '2019-03-23 06:26:13'),
-(32, '20', '8', 'I will try my best', '2019-03-23 06:32:20', '2019-03-23 06:32:20'),
-(33, '20', '10', 'When it will be?', '2019-03-23 06:35:32', '2019-03-23 06:35:32'),
-(37, '13', '9', 'what time Sir?', '2019-03-23 06:55:36', '2019-03-23 06:55:36'),
-(43, '13', '10', 'Tomorrow Sir?', '2019-03-24 07:07:38', '2019-03-24 07:07:38'),
-(44, '20', '9', '10.00 a.m', '2019-03-24 07:09:21', '2019-03-24 07:09:21'),
-(46, '22', '10', 'Anybody please give me syllabus?', '2019-03-24 07:15:42', '2019-03-24 07:15:42');
-
 -- --------------------------------------------------------
 
 --
@@ -114,15 +104,6 @@ CREATE TABLE `classroomposts` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `classroomposts`
---
-
-INSERT INTO `classroomposts` (`id`, `user_id`, `classroom_id`, `post`, `file`, `created_at`, `updated_at`) VALUES
-(9, '12', '8', '1st Quiz will be held tomorrow', '1553277947.pdf', '2019-03-22 12:05:47', '2019-03-22 12:05:47'),
-(10, '12', '8', 'New quiz date will be announced later', '1553280252.pdf', '2019-03-22 12:44:12', '2019-03-22 12:44:12'),
-(11, '14', '9', 'Today\'s class is cancelled', '1553342342.pdf', '2019-03-23 05:59:02', '2019-03-23 05:59:02');
 
 -- --------------------------------------------------------
 
@@ -146,8 +127,8 @@ CREATE TABLE `classrooms` (
 
 INSERT INTO `classrooms` (`id`, `department`, `course_title`, `course_code`, `classroom_code`, `created_at`, `updated_at`) VALUES
 (7, 'English', 'Advanced spoken english', 'eng123', '9138hs', '2019-03-12 13:37:05', '2019-03-12 13:37:05'),
-(8, 'cse', 'Problem Solving', 'cse432', '4ey41m', '2019-03-12 13:38:33', '2019-03-12 13:38:33'),
-(9, 'bba', 'business management', 'bus323', 'rx45ca', '2019-03-12 13:39:51', '2019-03-12 13:39:51');
+(9, 'bba', 'business management', 'bus323', 'rx45ca', '2019-03-12 13:39:51', '2019-03-12 13:39:51'),
+(20, 'cse', 'Problem Solving', 'cse432', 'b68guc', '2019-04-04 07:23:25', '2019-04-04 07:23:25');
 
 -- --------------------------------------------------------
 
@@ -170,12 +151,7 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id`, `user_id`, `full_name`, `post_id`, `comment`, `created_at`, `updated_at`) VALUES
-(42, '13', 'Md Mohaiminul Islam', '2', 'sddf', '2019-03-08 07:22:08', '2019-03-08 07:22:08'),
-(43, '20', 'Tohfae Masrura Sumaia', '1', 'very good', '2019-03-08 09:50:28', '2019-03-08 09:50:28'),
-(44, '13', 'Md Mohaiminul Islam', '1', 'done', '2019-03-09 00:56:32', '2019-03-09 00:56:32'),
-(45, '20', 'Tohfae Masrura Sumaia', '2', 'What is it??', '2019-03-09 01:50:20', '2019-03-09 01:50:20'),
-(46, '13', 'Md Mohaiminul Islam', '1', 'hmmm', '2019-03-09 01:54:08', '2019-03-09 01:54:08'),
-(47, '13', 'Md Mohaiminul Islam', '2', 'nothing', '2019-03-09 01:55:00', '2019-03-09 01:55:00');
+(49, '20', 'Tohfae Masrura Sumaia', '4', 'Thanks! This is very informative. Keep posting this kind of article.', '2019-04-05 05:52:18', '2019-04-05 05:52:18');
 
 -- --------------------------------------------------------
 
@@ -198,7 +174,8 @@ CREATE TABLE `libraries` (
 
 INSERT INTO `libraries` (`id`, `book_title`, `course_code`, `file`, `created_at`, `updated_at`) VALUES
 (2, 'Finance', 'bba234', '1551809828.pdf', '2019-03-05 12:17:08', '2019-03-05 12:17:08'),
-(3, 'C', 'cse111', '1551813701.pdf', '2019-03-05 13:21:41', '2019-03-05 13:21:41');
+(3, 'C', 'cse111', '1551813701.pdf', '2019-03-05 13:21:41', '2019-03-05 13:21:41'),
+(4, 'Python', 'cse432', '1554468271.pdf', '2019-04-05 06:44:31', '2019-04-05 06:44:31');
 
 -- --------------------------------------------------------
 
@@ -249,7 +226,8 @@ CREATE TABLE `notices` (
 
 INSERT INTO `notices` (`id`, `notice_title`, `department`, `description`, `file`, `created_at`, `updated_at`) VALUES
 (1, 'Classes will remain closed on Saturday', 'CSE', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', '1551816189.pdf', '2019-03-05 14:03:09', '2019-03-05 14:03:09'),
-(2, 'A meeting will be held on Monday at 4 p.m', 'bba', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', '1551858028.pdf', '2019-03-06 01:40:28', '2019-03-06 01:40:28');
+(2, 'A meeting will be held on Monday at 4 p.m', 'bba', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', '1551858028.pdf', '2019-03-06 01:40:28', '2019-03-06 01:40:28'),
+(3, 'Another Notice', 'CSE', 'Pre-defense will be held on tomorrow', NULL, '2019-04-05 04:11:51', '2019-04-05 04:11:51');
 
 -- --------------------------------------------------------
 
@@ -361,7 +339,16 @@ INSERT INTO `persistences` (`id`, `user_id`, `code`, `created_at`, `updated_at`)
 (303, 13, 'gsWJmoOzBrDCTqXJ3h7OSBksCUw3fioc', '2019-03-23 10:09:10', '2019-03-23 10:09:10'),
 (304, 20, 'sv7kieawl56qi7vcyaw3BuknyEuDYnOT', '2019-03-23 10:35:44', '2019-03-23 10:35:44'),
 (305, 13, 'zwiDkn8RhWYvKilgNZIG8dHo18dHlFxF', '2019-03-24 06:49:54', '2019-03-24 06:49:54'),
-(307, 22, 'M6KvSrzL8zXgVGjqd82FV2rRrQ3BoDXD', '2019-03-24 07:13:54', '2019-03-24 07:13:54');
+(307, 22, 'M6KvSrzL8zXgVGjqd82FV2rRrQ3BoDXD', '2019-03-24 07:13:54', '2019-03-24 07:13:54'),
+(308, 13, 'xcz91B3puuz6krrp9itQwLG0zN6A297s', '2019-03-24 12:09:04', '2019-03-24 12:09:04'),
+(309, 20, 'Q32jwlDBuGfAe6qqpvuaY74duwrYjv1b', '2019-03-24 12:28:16', '2019-03-24 12:28:16'),
+(310, 20, 'KJDwYWNhuwRIrzMJ8qHFCr8fLAt1Ljnc', '2019-03-27 07:28:11', '2019-03-27 07:28:11'),
+(313, 13, 'geklHAS0wdTPDRnOsLPoHjrisXkK8Y4t', '2019-03-27 08:26:46', '2019-03-27 08:26:46'),
+(314, 20, 'oh0GySuIJis0mObftjAlPoSKdOWZtYf2', '2019-03-27 08:32:50', '2019-03-27 08:32:50'),
+(316, 22, 'pFuLmC61nCZnZZoNa8jfZQOYW4Qzk5yH', '2019-03-27 13:45:05', '2019-03-27 13:45:05'),
+(321, 13, 'fYZcy4OtbC36KC8FO2uTnzqbJomqFc3D', '2019-03-31 03:11:03', '2019-03-31 03:11:03'),
+(324, 14, 'S45wK57re7ojQB0Q47X6tvXd5EsTxg41', '2019-03-31 05:04:57', '2019-03-31 05:04:57'),
+(326, 14, 'OleZuXJR9LUfA4wO4vCGsuzj40EZqTmS', '2019-04-01 09:56:12', '2019-04-01 09:56:12');
 
 -- --------------------------------------------------------
 
@@ -382,8 +369,7 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `user_id`, `post`, `created_at`, `updated_at`) VALUES
-(1, '13', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. \r\nMany desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy.', '2019-03-06 13:42:54', '2019-03-06 13:42:54'),
-(2, '20', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. \r\nIt has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2019-03-06 13:46:18', '2019-03-06 13:46:18');
+(4, '13', 'How to Learn C Programming Language ?\r\n\r\nLearn the C programming language tutorials in simple and easy way. The FreeWebMentor is the free resource to provide the C programming tutorials to learn. This is not only blog but having very readable techniques to coach you many languages such as C, C++, Ajax, Java, PL/SQL, PHP, Python, SEO and many other programming languages for beginners with examples. This website provides the many trends and tips for design and coding. Hope that you enjoy this site.', '2019-04-05 05:50:35', '2019-04-05 05:50:35');
 
 -- --------------------------------------------------------
 
@@ -408,13 +394,13 @@ CREATE TABLE `registereds` (
 --
 
 INSERT INTO `registereds` (`id`, `student_id`, `classroom_id`, `full_name`, `course_title`, `course_code`, `classroom_code`, `created_at`, `updated_at`) VALUES
-(1, '13', '7', 'Md Mohaiminul Islam', 'Advanced spoken english', 'eng123', '9138hs', NULL, NULL),
-(4, '13', '8', 'Md Mohaiminul Islam', 'Problem Solving', 'cse432', '4ey41m', NULL, NULL),
-(5, '20', '8', 'Tohfae Masrura Sumaia', 'Problem Solving', 'cse432', '4ey41m', NULL, NULL),
 (6, '20', '9', 'Tohfae Masrura Sumaia', 'business management', 'bus323', 'rx45ca', NULL, NULL),
-(16, '22', '8', 'Saiful Islam Rana', 'Problem Solving', 'cse432', '4ey41m', NULL, NULL),
 (18, '22', '9', 'Saiful Islam Rana', 'business management', 'bus323', 'rx45ca', NULL, NULL),
-(19, '22', '7', 'Saiful Islam Rana', 'Advanced spoken english', 'eng123', '9138hs', NULL, NULL);
+(19, '22', '7', 'Saiful Islam Rana', 'Advanced spoken english', 'eng123', '9138hs', NULL, NULL),
+(22, '22', '8', 'Saiful Islam Rana', 'Problem Solving', 'cse432', '4ey41m', NULL, NULL),
+(23, '13', '7', 'Md Mohaiminul Islam', 'Advanced spoken english', 'eng123', '9138hs', NULL, NULL),
+(24, '13', '20', 'Md Mohaiminul Islam', 'Problem Solving', 'cse432', 'b68guc', NULL, NULL),
+(25, '20', '20', 'Tohfae Masrura Sumaia', 'Problem Solving', 'cse432', 'b68guc', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -681,7 +667,9 @@ INSERT INTO `throttle` (`id`, `user_id`, `type`, `ip`, `created_at`, `updated_at
 (202, NULL, 'global', NULL, '2019-03-05 01:40:34', '2019-03-05 01:40:34'),
 (203, NULL, 'ip', '127.0.0.1', '2019-03-05 01:40:34', '2019-03-05 01:40:34'),
 (204, NULL, 'global', NULL, '2019-03-05 13:24:34', '2019-03-05 13:24:34'),
-(205, NULL, 'ip', '127.0.0.1', '2019-03-05 13:24:34', '2019-03-05 13:24:34');
+(205, NULL, 'ip', '127.0.0.1', '2019-03-05 13:24:34', '2019-03-05 13:24:34'),
+(206, NULL, 'global', NULL, '2019-04-04 05:22:32', '2019-04-04 05:22:32'),
+(207, NULL, 'ip', '127.0.0.1', '2019-04-04 05:22:32', '2019-04-04 05:22:32');
 
 -- --------------------------------------------------------
 
@@ -712,12 +700,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user_type`, `varsity_id`, `first_name`, `last_name`, `full_name`, `email`, `department`, `phone`, `password`, `photo`, `permissions`, `last_login`, `created_at`, `updated_at`) VALUES
-(12, 'employee', '1123554', 'teacher1', 'one', 'teacher one', 'teacher@onlineta.com', 'bba', 6576, '$2y$10$1nsiUzvpHH5wafk7//eeoOvwm3n9S8FD2rHsMKn8rRw/.kXNH1hRi', '1551364876.jpg', NULL, '2019-03-22 12:04:12', '2019-02-28 08:41:17', '2019-03-22 12:04:12'),
-(13, 'student', '151-15-335', 'Md Mohaiminul', 'Islam', 'Md Mohaiminul Islam', 'rabidislam@hotmail.com', 'CSE', 1624585608, '$2y$10$KJiCGKUdyAAPhcNAhJxeLuyvY1Ul2IWh.oooU2GZFZc5RihHO21fS', '1551366085.jpg', NULL, '2019-03-24 06:49:54', '2019-02-28 09:01:25', '2019-03-24 06:49:54'),
-(14, 'superadmin', '121243422', 'Super', 'Admin', 'Super Admin', 'superadmin@onlineta.com', 'ALL', 9873546723, '$2y$10$eIw.SbAAekC4kerloTbM1e2cO8uCM1A44T4WB3t0hgjn86jQ53C02', '1551691288.png', NULL, '2019-03-23 05:50:46', '2019-03-04 03:21:28', '2019-03-23 05:50:46'),
-(20, 'student', '151-15-313', 'Tohfae Masrura', 'Sumaia', 'Tohfae Masrura Sumaia', 'tohfa@onlineta.com', 'cse', 1639219939, '$2y$10$o/fC4rDEYhdFVM9Kbpedteqh6GidHvWzuAst7w5qq57Hf3pKlO.wi', '1551813936.jpg', NULL, '2019-03-24 06:50:10', '2019-03-05 13:25:37', '2019-03-24 06:50:10'),
-(22, 'student', '151-15-327', 'Saiful', 'Islam', 'Saiful Islam Rana', 'rana@onlineta.com', '151-15-327', 9124876545, '$2y$10$z5bd85pp32N37eIqQaevfeTjd1fN/i1UgOnZuREwQJgMarj9iAojy', '1552246270.jpg', NULL, '2019-03-24 07:13:54', '2019-03-10 13:31:10', '2019-03-24 07:13:54'),
-(23, 'admin', '16398463', 'admin', 'General', 'General Admin', 'admin@onlineta.com', 'ALL', 1724869856, '$2y$10$HXawHiuAT3SzFpMGJFiZQ.OYO7ZqRRnp7BDTBsix2Uzd7XSyZjvvC', '1553255069.png', NULL, '2019-03-22 05:50:27', '2019-03-22 05:44:29', '2019-03-22 05:50:27');
+(13, 'student', '151-15-335', 'Md Mohaiminul', 'Islam', 'Md Mohaiminul Islam', 'rabidislam@hotmail.com', 'CSE', 1624585608, '$2y$10$KJiCGKUdyAAPhcNAhJxeLuyvY1Ul2IWh.oooU2GZFZc5RihHO21fS', '1551366085.jpg', NULL, '2019-04-05 06:59:45', '2019-02-28 09:01:25', '2019-04-05 06:59:45'),
+(14, 'superadmin', '121243422', 'Super', 'Admin', 'Super Admin', 'superadmin@onlineta.com', 'ALL', 9873546723, '$2y$10$eIw.SbAAekC4kerloTbM1e2cO8uCM1A44T4WB3t0hgjn86jQ53C02', '1551691288.png', NULL, '2019-04-05 06:56:32', '2019-03-04 03:21:28', '2019-04-05 06:56:32'),
+(20, 'student', '151-15-313', 'Tohfae Masrura', 'Sumaia', 'Tohfae Masrura Sumaia', 'tohfa@onlineta.com', 'cse', 1639219939, '$2y$10$o/fC4rDEYhdFVM9Kbpedteqh6GidHvWzuAst7w5qq57Hf3pKlO.wi', '1551813936.jpg', NULL, '2019-04-05 05:51:19', '2019-03-05 13:25:37', '2019-04-05 05:51:19'),
+(22, 'student', '151-15-327', 'Saiful', 'Islam', 'Saiful Islam Rana', 'rana@onlineta.com', '151-15-327', 9124876545, '$2y$10$z5bd85pp32N37eIqQaevfeTjd1fN/i1UgOnZuREwQJgMarj9iAojy', '1552246270.jpg', NULL, '2019-04-04 17:16:35', '2019-03-10 13:31:10', '2019-04-04 17:16:35'),
+(24, 'employee', '19836637', 'teacher1', 'one', 'Teacher One', 'teacher@onlineta.com', 'cse', 6576, '$2y$10$DPmfYdCFZ8rzZ/5EaWT4SeIUuFcBL3SgUz7Ag51nppdb5jXvEeMDi', '1554458545.jpg', NULL, '2019-04-05 04:31:46', '2019-03-30 07:35:41', '2019-04-05 04:31:46'),
+(25, 'admin', '34257646', 'admin', 'General', 'General Admin', 'admin@onlineta.com', 'ALL', 9123876543, '$2y$10$W7NJW4GgaihF8.8FPSfENeX9AEyMEj8N15ChOWYKpVdpwZZ0rixS2', '1554377081.png', NULL, '2019-04-05 04:29:47', '2019-04-04 05:24:41', '2019-04-05 04:29:47'),
+(26, 'employee', '112236', 'Md. Rasel', 'Ahmed', 'Md. Rasel Ahmed', 'rasel@onlineta.com', 'CSE', 1723849944, '$2y$10$4A73/HduckMX25rVGUP3n.3RjSM0ZhvULqQw9QrLj3aug5zqFzfsa', '1554467608.jpg', NULL, NULL, '2019-04-05 06:33:28', '2019-04-05 06:33:28');
 
 --
 -- Indexes for dumped tables
@@ -831,37 +820,37 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `activations`
 --
 ALTER TABLE `activations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `classroomcomments`
 --
 ALTER TABLE `classroomcomments`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `classroomposts`
 --
 ALTER TABLE `classroomposts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `classrooms`
 --
 ALTER TABLE `classrooms`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `libraries`
 --
 ALTER TABLE `libraries`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -873,25 +862,25 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `notices`
 --
 ALTER TABLE `notices`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `persistences`
 --
 ALTER TABLE `persistences`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=308;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=327;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `registereds`
 --
 ALTER TABLE `registereds`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `reminders`
@@ -909,13 +898,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `throttle`
 --
 ALTER TABLE `throttle`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=206;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=208;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
