@@ -33,7 +33,7 @@
                 <button class="btn btn-primary">View</button>
             </a>
             <a href="{{ asset('/uploads/library').'/'.$notice->file }}">
-                <button class="btn btn-primary">Download</button>
+                <button class="btn btn-info">Download</button>
             </a>
           </td>
           

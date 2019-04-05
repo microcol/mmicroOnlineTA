@@ -42,9 +42,9 @@
           <a href="/{{ $teacherInfo->id }}">
             <button class="btn btn-primary" onclick="edit({{ $teacherInfo->id }})" data-toggle="modal" data-target="#exampleModal">EDIT</button>
           </a>
-          <!-- <a href="{{  URL::to('deleteTeacher/'.$teacherInfo->id) }}">
+          <a href="{{  URL::to('/deleteTeacher/'.$teacherInfo->id) }}" onclick="return confirm('Are you sure want to delete this user?');">
             <button class="btn btn-danger">DELETE</button>
-          </a> -->
+          </a>
           
         </td>
 

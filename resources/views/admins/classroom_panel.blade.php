@@ -40,7 +40,7 @@
 
           <td>
           <a href="/edit_dept/{{$deptInfo->id}}">
-            <button class="btn btn-primary">Update Department</button>
+            <button class="btn btn-primary">Add new Classroom</button>
           </a>
           <a href="/delete_dept/{{$deptInfo->id}}">
             <button class="btn btn-danger">DELETE</button>

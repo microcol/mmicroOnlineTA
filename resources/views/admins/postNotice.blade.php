@@ -37,7 +37,7 @@
 			  <div class="control-group">
 				<label class="control-label" for="focusedInput">Attachment</label>
 				<div class="controls">
-				  <input class="input-xlarge focused" id="focusedInput" type="file" name="file" required>
+				  <input class="input-xlarge focused" id="focusedInput" type="file" name="file">
 			   </div>
 			  </div>    
 			  <div class="form-actions">

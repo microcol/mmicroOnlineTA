@@ -160,7 +160,9 @@ class RegisterController extends Controller
 //        var_dump($deleteTeacher); die;
     //    $deleteTeacher->delete();
 
-        $user = Sentinel::EloquentUser()->delete($id);
+        // $user = Sentinel::EloquentUser()->delete($id);
+
+        $deleteTeacher = Sentinel::createModel()->withTrashed()->find($id);
 
         if($deleteTeacher) {
             $notification=array(

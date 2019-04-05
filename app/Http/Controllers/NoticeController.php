@@ -27,6 +27,10 @@ class NoticeController extends Controller
     }
     
     public function postNotice(Request $request) {
+
+        $data= $request->all();
+
+        try{
         
         request()->validate([
             'file' => "required|mimes:pdf|max:10000",
@@ -40,6 +44,10 @@ class NoticeController extends Controller
         $data= $request->all();
         
         $data['file']= $fileName;
+
+        }catch (\Exception $e) {
+
+        }finally{
         
         $uploadFile= Notice::create($data);
         
@@ -51,6 +59,8 @@ class NoticeController extends Controller
                return Redirect()->back()->with($notification);
 
         }
+
+    }
 
     }
 

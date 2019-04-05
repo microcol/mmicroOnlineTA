@@ -22,7 +22,8 @@ use Sentinel;
 class ClassroomController extends Controller
 {
     public function index() {
-        $courseInfo= Classroom::all();
+        // $courseInfo= Classroom::all();
+        $courseInfo= Classroom::distinct()->get(['department','id']);
         
         $generateClassroomCode= substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 6);
         //dd($courseInfo,$generateClassroomCode);
